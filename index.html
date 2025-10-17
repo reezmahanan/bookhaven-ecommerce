@@ -24,17 +24,34 @@
             </nav>
             <div class="nav-actions">
                 <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search books..." class="search-input">
+                    <input type="text" id="searchInput" placeholder="Search books, authors, ISBN..." class="search-input">
                     <i class="fas fa-search search-icon"></i>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
                 </div>
-                <button class="cart-btn" onclick="toggleCart()">
+                <button class="compare-btn compare-toggle" title="Compare Books">
+                    <i class="fas fa-balance-scale"></i>
+                    <span class="compare-count">0</span>
+                </button>
+                <button class="wishlist-btn wishlist-toggle" title="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="cart-btn cart-toggle" title="Shopping Cart">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
+                    <span class="cart-count">0</span>
                 </button>
-                <button class="auth-btn" onclick="openAuthModal()">
-                    <i class="fas fa-user"></i>
-                    Login
-                </button>
+                <div class="user-menu">
+                    <button class="auth-btn" onclick="toggleUserMenu()" id="userMenuBtn">
+                        <i class="fas fa-user"></i>
+                        <span id="userDisplayName">Account</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="openProfile()"><i class="fas fa-user-edit"></i> Profile</a>
+                        <a href="#" onclick="openOrderHistory()"><i class="fas fa-history"></i> Order History</a>
+                        <a href="#" onclick="openSettings()"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -55,25 +72,116 @@
     <!-- Books Section -->
     <section class="books-section" id="books">
         <div class="container">
-            <h2>Featured Books</h2>
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" id="breadcrumb">
+                <a href="#home">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">All Books</span>
+            </nav>
+
+            <div class="section-header">
+                <h2>Featured Books</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid" title="Grid View">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="List View">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
             
-            <!-- Filters -->
-            <div class="filters">
-                <button class="filter-btn active" data-category="all">All Books</button>
-                <button class="filter-btn" data-category="fiction">Fiction</button>
-                <button class="filter-btn" data-category="non-fiction">Non-Fiction</button>
-                <button class="filter-btn" data-category="mystery">Mystery</button>
-                <button class="filter-btn" data-category="romance">Romance</button>
+            <!-- Advanced Filters -->
+            <div class="advanced-filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="biography">Biography</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Author:</label>
+                        <select id="authorFilter" class="filter-select">
+                            <option value="all">All Authors</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Rating:</label>
+                        <select id="ratingFilter" class="filter-select">
+                            <option value="all">Any Rating</option>
+                            <option value="4.5">4.5+ Stars</option>
+                            <option value="4.0">4.0+ Stars</option>
+                            <option value="3.5">3.5+ Stars</option>
+                            <option value="3.0">3.0+ Stars</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Availability:</label>
+                        <select id="availabilityFilter" class="filter-select">
+                            <option value="all">All Books</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>Sort By:</label>
+                        <select id="sortFilter" class="filter-select">
+                            <option value="featured">Featured</option>
+                            <option value="title">Title A-Z</option>
+                            <option value="title-desc">Title Z-A</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="newest">Newest First</option>
+                            <option value="popular">Most Popular</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Range: $<span id="priceMin">0</span> - $<span id="priceMax">50</span></label>
+                        <div class="price-range-container">
+                            <input type="range" id="priceRangeMin" min="0" max="50" value="0" class="price-slider">
+                            <input type="range" id="priceRangeMax" min="0" max="50" value="50" class="price-slider">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <button class="clear-filters-btn" onclick="clearAllFilters()">
+                            <i class="fas fa-times"></i> Clear Filters
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <!-- Price Range Filter -->
-            <div class="price-filter">
-                <label for="priceRange">Price Range: $0 - $<span id="priceValue">50</span></label>
-                <input type="range" id="priceRange" min="0" max="50" value="50" class="price-slider">
+            <!-- Results Info -->
+            <div class="results-info">
+                <span id="resultsCount">Showing 12 of 12 books</span>
+                <div class="items-per-page">
+                    <label>Show:</label>
+                    <select id="itemsPerPage">
+                        <option value="8">8 per page</option>
+                        <option value="12" selected>12 per page</option>
+                        <option value="24">24 per page</option>
+                        <option value="48">48 per page</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Books Grid -->
-            <div class="books-grid" id="booksGrid">
+            <div class="books-grid" id="booksContainer">
                 <!-- Books will be populated by JavaScript -->
             </div>
 
@@ -84,24 +192,156 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-header">
+                <h2>About BookHaven</h2>
+                <p>Your Premier Online Bookstore</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Vast Collection</h3>
+                            <p>Discover thousands of books across all genres, from bestsellers to hidden gems. Our carefully curated collection ensures you'll always find something perfect for your reading journey.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Fast Delivery</h3>
+                            <p>Get your books delivered quickly and safely. We offer multiple shipping options to ensure your books reach you when you need them, whether it's next-day or standard delivery.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Secure Shopping</h3>
+                            <p>Shop with confidence knowing your personal information is protected. We use industry-standard encryption and secure payment processing for all transactions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Customer First</h3>
+                            <p>Our dedicated customer service team is here to help you find the perfect book and ensure you have an amazing shopping experience with us every time.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Books Available</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Customer Support</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Shopping Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button class="close-cart" onclick="toggleCart()">
+    <div class="cart-sidebar sidebar" id="cartSidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+            <button class="close-sidebar" onclick="toggleCart()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        <div class="cart-items" id="cartItems">
+        <div class="sidebar-content" id="cartItems">
             <!-- Cart items will be populated by JavaScript -->
         </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <strong>Total: $<span id="cartTotal">0.00</span></strong>
+        <div class="sidebar-footer">
+            <div class="cart-summary">
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span>$<span id="cartSubtotal">0.00</span></span>
+                </div>
+                <div class="summary-line">
+                    <span>Shipping:</span>
+                    <span id="shippingCost">FREE</span>
+                </div>
+                <div class="summary-line total">
+                    <strong>Total: $<span id="cartTotal">0.00</span></strong>
+                </div>
             </div>
             <button class="checkout-btn" onclick="openCheckout()">
-                Proceed to Checkout
+                <i class="fas fa-credit-card"></i> Proceed to Checkout
             </button>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-sidebar sidebar" id="wishlistSidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-heart"></i> My Wishlist</h3>
+            <button class="close-sidebar" onclick="toggleWishlist()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content" id="wishlistItems">
+            <!-- Wishlist items will be populated by JavaScript -->
+        </div>
+        <div class="sidebar-footer">
+            <button class="clear-wishlist-btn" onclick="clearWishlist()">
+                <i class="fas fa-trash"></i> Clear Wishlist
+            </button>
+        </div>
+    </div>
+
+    <!-- Compare Sidebar -->
+    <div class="compare-sidebar sidebar" id="compareSidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-balance-scale"></i> Compare Books</h3>
+            <button class="close-sidebar" onclick="toggleCompare()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content" id="compareItems">
+            <!-- Compare items will be populated by JavaScript -->
+        </div>
+        <div class="sidebar-footer">
+            <button class="compare-btn-full" onclick="openCompareModal()">
+                <i class="fas fa-eye"></i> View Comparison
+            </button>
+            <button class="clear-compare-btn" onclick="clearCompare()">
+                <i class="fas fa-trash"></i> Clear All
+            </button>
+        </div>
+    </div>
+
+    <!-- Recently Viewed -->
+    <div class="recently-viewed" id="recentlyViewed">
+        <div class="container">
+            <h3><i class="fas fa-clock"></i> Recently Viewed</h3>
+            <div class="recently-viewed-items" id="recentlyViewedItems">
+                <!-- Recently viewed items will be populated by JavaScript -->
+            </div>
         </div>
     </div>
 
@@ -182,11 +422,245 @@
         </div>
     </div>
 
+    <!-- User Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProfile()">&times;</span>
+            <div class="profile-container">
+                <h3><i class="fas fa-user-edit"></i> My Profile</h3>
+                <form class="profile-form" id="profileForm">
+                    <div class="profile-section">
+                        <h4>Personal Information</h4>
+                        <div class="form-row">
+                            <input type="text" placeholder="First Name" id="firstName" required>
+                            <input type="text" placeholder="Last Name" id="lastName" required>
+                        </div>
+                        <input type="email" placeholder="Email Address" id="email" required>
+                        <input type="tel" placeholder="Phone Number" id="phone">
+                        <input type="date" placeholder="Date of Birth" id="dateOfBirth">
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h4>Shipping Address</h4>
+                        <input type="text" placeholder="Street Address" id="address" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="City" id="city" required>
+                            <input type="text" placeholder="State" id="state" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="Postal Code" id="postalCode" required>
+                            <input type="text" placeholder="Country" id="country" required>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h4>Preferences</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="emailNotifications">
+                            <span class="checkmark"></span>
+                            Receive email notifications
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="smsNotifications">
+                            <span class="checkmark"></span>
+                            Receive SMS notifications
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter">
+                            <span class="checkmark"></span>
+                            Subscribe to newsletter
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="save-profile-btn">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order History Modal -->
+    <div class="modal" id="orderHistoryModal">
+        <div class="modal-content large-modal">
+            <span class="close-modal" onclick="closeOrderHistory()">&times;</span>
+            <div class="order-history-container">
+                <h3><i class="fas fa-history"></i> Order History</h3>
+                <div class="order-filters">
+                    <select id="orderStatusFilter">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <input type="date" id="orderDateFrom" placeholder="From Date">
+                    <input type="date" id="orderDateTo" placeholder="To Date">
+                </div>
+                <div class="orders-list" id="ordersList">
+                    <!-- Orders will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Comparison Modal -->
+    <div class="modal" id="compareModal">
+        <div class="modal-content large-modal">
+            <span class="close-modal" onclick="closeCompareModal()">&times;</span>
+            <div class="compare-container">
+                <h3><i class="fas fa-balance-scale"></i> Compare Books</h3>
+                <div class="comparison-table" id="comparisonTable">
+                    <!-- Comparison table will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Write Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeReviewModal()">&times;</span>
+            <div class="review-container">
+                <h3><i class="fas fa-star"></i> Write a Review</h3>
+                <form class="review-form" id="reviewForm">
+                    <div class="review-book-info" id="reviewBookInfo">
+                        <!-- Book info will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="rating-input">
+                        <label>Your Rating:</label>
+                        <div class="star-rating" id="starRating">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    
+                    <input type="text" placeholder="Review Title" id="reviewTitle" required>
+                    <textarea placeholder="Write your review here..." id="reviewText" rows="6" required></textarea>
+                    
+                    <div class="review-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="recommendBook">
+                            <span class="checkmark"></span>
+                            I recommend this book
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-review-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeSettings()">&times;</span>
+            <div class="settings-container">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <div class="settings-tabs">
+                    <button class="settings-tab active" onclick="showSettingsTab('account')">Account</button>
+                    <button class="settings-tab" onclick="showSettingsTab('notifications')">Notifications</button>
+                    <button class="settings-tab" onclick="showSettingsTab('privacy')">Privacy</button>
+                </div>
+                
+                <div class="settings-content">
+                    <div class="settings-panel active" id="accountSettings">
+                        <h4>Account Settings</h4>
+                        <div class="setting-item">
+                            <label>Display Name:</label>
+                            <input type="text" id="displayName" placeholder="Your display name">
+                        </div>
+                        <div class="setting-item">
+                            <label>Language:</label>
+                            <select id="language">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Currency:</label>
+                            <select id="currency">
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-panel" id="notificationSettings">
+                        <h4>Notification Preferences</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="orderUpdates" checked>
+                            <span class="checkmark"></span>
+                            Order updates
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="promotionalEmails">
+                            <span class="checkmark"></span>
+                            Promotional emails
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newArrivals">
+                            <span class="checkmark"></span>
+                            New arrivals notifications
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="priceAlerts">
+                            <span class="checkmark"></span>
+                            Price drop alerts
+                        </label>
+                    </div>
+                    
+                    <div class="settings-panel" id="privacySettings">
+                        <h4>Privacy Settings</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="profileVisibility">
+                            <span class="checkmark"></span>
+                            Make profile public
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="reviewVisibility" checked>
+                            <span class="checkmark"></span>
+                            Show my reviews publicly
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="purchaseHistory">
+                            <span class="checkmark"></span>
+                            Share purchase history for recommendations
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="save-settings-btn" onclick="saveSettings()">
+                    <i class="fas fa-save"></i> Save Settings
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification -->
     <div class="toast" id="toast">
         <div class="toast-content">
             <i class="fas fa-check-circle"></i>
             <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading...</p>
         </div>
     </div>
 
@@ -235,6 +709,32 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Page Loading -->
+    <div class="page-loading" id="pageLoading">
+        <div class="page-loading-content">
+            <div class="book-loader">
+                <div class="book-pages">
+                    <div class="page"></div>
+                    <div class="page"></div>
+                    <div class="page"></div>
+                </div>
+            </div>
+            <h2>BookHaven</h2>
+            <p>Loading your favorite books...</p>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-new.js"></script>
 </body>
 </html>
