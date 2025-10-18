@@ -42,7 +42,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Fixed Navigation Layout */
+/* Reversed Navigation Layout (180 degree flip) */
 .header .container {
     display: flex;
     justify-content: space-between;
@@ -52,15 +52,17 @@ body {
     width: 100%;
     min-width: 1000px;
     overflow-x: auto;
+    flex-direction: row-reverse;
 }
 
-/* Left Section: Brand & Location */
+/* Left Section: Brand & Location (Now on Right) */
 .nav-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     flex-shrink: 0;
     min-width: 200px;
+    order: 3;
 }
 
 .nav-brand {
@@ -127,6 +129,8 @@ body {
     gap: 1.5rem;
     flex-grow: 1;
     max-width: 600px;
+    order: 2;
+    flex-direction: row-reverse;
 }
 
 .nav-link {
@@ -160,15 +164,17 @@ body {
     transform: translateY(-1px);
 }
 
-/* Right Section: Search & Actions */
+/* Right Section: Search & Actions (Now on Left) */
 .nav-right {
     display: flex !important;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 0.75rem;
     flex-shrink: 0;
     min-width: 450px;
     overflow: visible;
+    order: 1;
+    flex-direction: row-reverse;
 }
 
 .search-container {
