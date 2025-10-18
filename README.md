@@ -190,7 +190,7 @@ We welcome contributions! Here's how you can help:
 
 ## 👨‍💻 About the Author
 
-**Reez Mahanan** ([reezmahanan](https://github.com/reezmahanan))
+**Reezma hanan** ([reezmahanan](https://github.com/reezmahanan))
 - 🎓 Passionate Frontend Developer
 - 💻 Specializing in JavaScript, HTML5, CSS3
 - 🚀 Building modern, responsive web applications
