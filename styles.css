@@ -42,40 +42,44 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+/* New Navigation Layout */
 .header .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+/* Left Section: Brand & Location */
+.nav-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .nav-brand {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
     color: #e74c3c;
-}
-
-.nav-brand > div:first-child {
-    display: flex;
-    align-items: center;
+    margin-bottom: 2px;
 }
 
 .nav-brand i {
-    margin-right: 10px;
-    font-size: 1.8rem;
+    margin-right: 8px;
+    font-size: 1.6rem;
 }
 
 .location-info {
     display: flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #bdc3c7;
-    margin-top: 2px;
     font-weight: 400;
     cursor: pointer;
-    padding: 4px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
     transition: all 0.3s ease;
 }
@@ -111,26 +115,109 @@ body {
     to { transform: rotate(360deg); }
 }
 
-.nav {
+/* Center Section: Main Navigation */
+.nav-center {
     display: flex;
+    justify-content: center;
     gap: 2rem;
 }
 
-.nav a {
+.nav-link {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
-.nav a:hover {
+.nav-link:hover {
     color: #e74c3c;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.deals-link {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white !important;
+    font-weight: 600;
+}
+
+.deals-link:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+/* Right Section: Search & Actions */
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.search-container {
+    position: relative;
+    min-width: 200px;
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.count-badge {
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 16px;
+    text-align: center;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.auth-btn {
+    min-width: 80px;
+    justify-content: center;
+}
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
 }
 
 .currency-selector select {
@@ -146,6 +233,126 @@ body {
 
 .currency-selector select:hover {
     background: #4a5f7a;
+}
+
+/* ===== NAVIGATION RESPONSIVE STYLES ===== */
+
+/* Tablet Navigation */
+@media (max-width: 1024px) {
+    .header .container {
+        grid-template-columns: 1fr 1.5fr 1fr;
+        gap: 1rem;
+    }
+    
+    .nav-center {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-container {
+        min-width: 150px;
+    }
+}
+
+/* Mobile Landscape Navigation */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.75rem 0;
+    }
+    
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-template-columns: none;
+    }
+    
+    .nav-center {
+        display: none;
+    }
+    
+    .nav-right {
+        gap: 0.5rem;
+    }
+    
+    .search-container {
+        display: none;
+    }
+    
+    .nav-actions {
+        gap: 0.3rem;
+    }
+    
+    .action-btn {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+    
+    .action-btn span {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        order: 3;
+    }
+    
+    .currency-selector select {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Portrait Navigation */
+@media (max-width: 480px) {
+    .header .container {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.5rem;
+    }
+    
+    .nav-left {
+        align-self: flex-start;
+        width: 100%;
+    }
+    
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .nav-actions {
+        flex: 1;
+        justify-content: flex-end;
+    }
+    
+    .mobile-menu-toggle {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+    }
+    
+    .location-info {
+        font-size: 0.7rem;
+    }
+    
+    .nav-brand {
+        font-size: 1.3rem;
+    }
+    
+    .action-btn {
+        padding: 0.3rem;
+    }
+    
+    .count-badge {
+        font-size: 0.6rem;
+        padding: 1px 4px;
+    }
 }
 
 .deals-link {

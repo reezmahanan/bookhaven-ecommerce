@@ -12,66 +12,88 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="nav-brand">
-                <i class="fas fa-book"></i>
-                <span>BookHaven</span>
+            <!-- Left Section: Brand & Location -->
+            <div class="nav-left">
+                <div class="nav-brand">
+                    <i class="fas fa-book"></i>
+                    <span>BookHaven</span>
+                </div>
                 <div class="location-info" onclick="refreshLocation()" title="Click to refresh your location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span id="currentLocation">Colombo, Sri Lanka</span>
+                    <span id="currentLocation">Sri Lanka</span>
                     <i class="fas fa-sync-alt location-refresh" id="locationRefreshIcon"></i>
                 </div>
             </div>
-            <nav class="nav">
-                <a href="#home">Home</a>
-                <a href="#books">Books</a>
-                <a href="#deals" class="deals-link">🔥 Deals</a>
-                <a href="#branches">Branches</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+
+            <!-- Center Section: Main Navigation -->
+            <nav class="nav-center">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#books" class="nav-link">Books</a>
+                <a href="#deals" class="nav-link deals-link">
+                    <i class="fas fa-fire"></i> Deals
+                </a>
+                <a href="#branches" class="nav-link">Branches</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
-                <div class="nav-actions">
-                <div class="currency-selector">
-                    <select id="currencySelector">
-                        <option value="LKR">LKR (₨)</option>
-                        <option value="INR">INR (₹)</option>
-                        <option value="USD">USD ($)</option>
-                    </select>
-                </div>
+
+            <!-- Right Section: Search & Actions -->
+            <div class="nav-right">
                 <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search books, authors, ISBN..." class="search-input">
+                    <input type="text" id="searchInput" placeholder="Search books, authors..." class="search-input">
                     <i class="fas fa-search search-icon"></i>
                     <div class="search-suggestions" id="searchSuggestions"></div>
                 </div>
-                <button class="compare-btn compare-toggle" title="Compare Books">
-                    <i class="fas fa-balance-scale"></i>
-                    <span class="compare-count">0</span>
-                </button>
-                <button class="wishlist-btn wishlist-toggle" title="Wishlist">
-                    <i class="fas fa-heart"></i>
-                    <span class="wishlist-count">0</span>
-                </button>
-                <button class="cart-btn cart-toggle" title="Shopping Cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </button>
-                <button class="notifications-btn" id="notificationsBtn" title="Notifications">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-count" id="notificationCount">3</span>
-                </button>
-                <div class="user-menu">
-                    <button class="auth-btn" id="userMenuBtn">
-                        <i class="fas fa-user"></i>
-                        <span id="userDisplayName">Account</span>
+                
+                <div class="nav-actions">
+                    <div class="currency-selector">
+                        <select id="currencySelector">
+                            <option value="LKR">LKR (₨)</option>
+                            <option value="INR">INR (₹)</option>
+                            <option value="USD">USD ($)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="action-btn compare-toggle" title="Compare Books">
+                        <i class="fas fa-balance-scale"></i>
+                        <span class="count-badge compare-count">0</span>
                     </button>
-                    <div class="user-dropdown" id="userDropdown">
-                        <a href="#" onclick="openProfile()"><i class="fas fa-user-edit"></i> Profile</a>
-                        <a href="#" onclick="openOrderHistory()"><i class="fas fa-history"></i> Order History</a>
-                        <a href="#" onclick="openNotifications()"><i class="fas fa-bell"></i> Notifications</a>
-                        <a href="#" onclick="openSettings()"><i class="fas fa-cog"></i> Settings</a>
-                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    
+                    <button class="action-btn wishlist-toggle" title="Wishlist">
+                        <i class="fas fa-heart"></i>
+                        <span class="count-badge wishlist-count">0</span>
+                    </button>
+                    
+                    <button class="action-btn cart-toggle" title="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="count-badge cart-count">0</span>
+                    </button>
+                    
+                    <button class="action-btn" id="notificationsBtn" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="count-badge notification-count" id="notificationCount">3</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <button class="action-btn auth-btn" id="userMenuBtn">
+                            <i class="fas fa-user"></i>
+                            <span id="userDisplayName">Account</span>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" onclick="openProfile()"><i class="fas fa-user-edit"></i> Profile</a>
+                            <a href="#" onclick="openOrderHistory()"><i class="fas fa-history"></i> Order History</a>
+                            <a href="#" onclick="openNotifications()"><i class="fas fa-bell"></i> Notifications</a>
+                            <a href="#" onclick="openSettings()"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
