@@ -15,14 +15,26 @@
             <div class="nav-brand">
                 <i class="fas fa-book"></i>
                 <span>BookHaven</span>
+                <div class="location-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="currentLocation">Colombo, Sri Lanka</span>
+                </div>
             </div>
             <nav class="nav">
                 <a href="#home">Home</a>
                 <a href="#books">Books</a>
+                <a href="#branches">Branches</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <div class="nav-actions">
+                <div class="nav-actions">
+                <div class="currency-selector">
+                    <select id="currencySelector">
+                        <option value="LKR">LKR (₨)</option>
+                        <option value="INR">INR (₹)</option>
+                        <option value="USD">USD ($)</option>
+                    </select>
+                </div>
                 <div class="search-container">
                     <input type="text" id="searchInput" placeholder="Search books, authors, ISBN..." class="search-input">
                     <i class="fas fa-search search-icon"></i>
@@ -100,10 +112,16 @@
                             <option value="all">All Categories</option>
                             <option value="fiction">Fiction</option>
                             <option value="non-fiction">Non-Fiction</option>
+                            <option value="sri-lankan">Sri Lankan Literature</option>
+                            <option value="indian">Indian Literature</option>
+                            <option value="tamil">Tamil Books</option>
+                            <option value="sinhala">Sinhala Books</option>
                             <option value="mystery">Mystery</option>
                             <option value="romance">Romance</option>
                             <option value="fantasy">Fantasy</option>
                             <option value="biography">Biography</option>
+                            <option value="history">Asian History</option>
+                            <option value="spiritual">Spiritual & Philosophy</option>
                         </select>
                     </div>
                     
@@ -188,6 +206,174 @@
             <!-- Pagination -->
             <div class="pagination" id="pagination">
                 <!-- Pagination will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section class="branches-section" id="branches">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-store"></i> Our Branches</h2>
+                <p>Visit our physical stores across Sri Lanka and India</p>
+            </div>
+            
+            <div class="branches-container">
+                <div class="country-section">
+                    <h3><i class="fas fa-flag"></i> Sri Lanka Branches</h3>
+                    <div class="branches-grid">
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Colombo Main Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Galle Road, Colombo 03</p>
+                            <p><i class="fas fa-phone"></i> +94 11 234 5678</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 9AM-8PM, Sun: 10AM-6PM</p>
+                            <div class="branch-features">
+                                <span class="feature">📚 20,000+ Books</span>
+                                <span class="feature">🅿️ Free Parking</span>
+                                <span class="feature">☕ Reading Café</span>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h4>Kandy Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 45 Dalada Veediya, Kandy</p>
+                            <p><i class="fas fa-phone"></i> +94 81 222 3456</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 9AM-7PM, Sun: 10AM-5PM</p>
+                            <div class="branch-features">
+                                <span class="feature">📖 15,000+ Books</span>
+                                <span class="feature">🏛️ Heritage Location</span>
+                                <span class="feature">🎭 Cultural Section</span>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-store-alt"></i>
+                            </div>
+                            <h4>Galle Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 78 Fort Main Street, Galle</p>
+                            <p><i class="fas fa-phone"></i> +94 91 555 7890</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 9AM-7PM, Sun: 10AM-5PM</p>
+                            <div class="branch-features">
+                                <span class="feature">🏰 Fort Location</span>
+                                <span class="feature">🌊 Coastal Views</span>
+                                <span class="feature">📚 Travel Section</span>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h4>Jaffna Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 12 Hospital Road, Jaffna</p>
+                            <p><i class="fas fa-phone"></i> +94 21 333 4567</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 9AM-7PM, Sun: 10AM-5PM</p>
+                            <div class="branch-features">
+                                <span class="feature">🈳 Tamil Collection</span>
+                                <span class="feature">📖 Academic Books</span>
+                                <span class="feature">🎓 Student Discounts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="country-section">
+                    <h3><i class="fas fa-flag"></i> India Branches</h3>
+                    <div class="branches-grid">
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h4>Chennai Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 234 T. Nagar, Chennai, Tamil Nadu</p>
+                            <p><i class="fas fa-phone"></i> +91 44 2456 7890</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 10AM-7PM</p>
+                            <div class="branch-features">
+                                <span class="feature">🈳 Tamil Literature</span>
+                                <span class="feature">🏢 Metro Access</span>
+                                <span class="feature">📱 Digital Corner</span>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <h4>Mumbai Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 456 Linking Road, Bandra West, Mumbai</p>
+                            <p><i class="fas fa-phone"></i> +91 22 6789 1234</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 11AM-7PM</p>
+                            <div class="branch-features">
+                                <span class="feature">🎬 Bollywood Section</span>
+                                <span class="feature">🚇 Station Nearby</span>
+                                <span class="feature">☕ Book Café</span>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-mosque"></i>
+                            </div>
+                            <h4>Delhi Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 789 Connaught Place, New Delhi</p>
+                            <p><i class="fas fa-phone"></i> +91 11 9876 5432</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 11AM-7PM</p>
+                            <div class="branch-features">
+                                <span class="feature">🏛️ Heritage Books</span>
+                                <span class="feature">🚇 Metro Connected</span>
+                                <span class="feature">📚 Government Section</span>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-card">
+                            <div class="branch-icon">
+                                <i class="fas fa-temple-hindu"></i>
+                            </div>
+                            <h4>Bangalore Branch</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 321 Brigade Road, Bangalore, Karnataka</p>
+                            <p><i class="fas fa-phone"></i> +91 80 1234 5678</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 11AM-7PM</p>
+                            <div class="branch-features">
+                                <span class="feature">💻 Tech Books</span>
+                                <span class="feature">🌳 Garden City</span>
+                                <span class="feature">🎓 IT Section</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="branch-features-section">
+                <h3>Why Visit Our Physical Stores?</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Personal Assistance</h4>
+                        <p>Get personalized book recommendations from our knowledgeable staff</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-book-reader"></i>
+                        <h4>Browse & Read</h4>
+                        <p>Comfortable reading areas to preview books before purchase</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Events & Workshops</h4>
+                        <p>Author meet-ups, book clubs, and literary events</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-gift"></i>
+                        <h4>Exclusive Offers</h4>
+                        <p>Special in-store discounts and loyalty programs</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -279,24 +465,32 @@
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3>Visit Our Store</h3>
-                        <p>123 BookHaven Street<br>Literary District, Reading City<br>RC 12345</p>
+                        <h3>Sri Lanka Headquarters</h3>
+                        <p>123 Galle Road, Colombo 03<br>Western Province, Sri Lanka<br>📍 GPS: 6.9271° N, 79.8612° E</p>
                     </div>
                     
                     <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3>Call Us</h3>
-                        <p>Phone: +1 (555) 123-BOOK<br>Toll Free: 1-800-BOOKHAVEN<br>Mon-Sat: 9AM-8PM</p>
+                        <h3>Contact Numbers</h3>
+                        <p>🇱🇰 Sri Lanka: +94 11 234-BOOK<br>🇮🇳 India: +91 44 567-BOOK<br>📞 WhatsApp: +94 77 123 4567<br>⏰ Mon-Sat: 9AM-8PM IST</p>
                     </div>
                     
                     <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <h3>Email Us</h3>
-                        <p>info@bookhaven.com<br>support@bookhaven.com<br>We reply within 24 hours!</p>
+                        <h3>Email Support</h3>
+                        <p>📧 info@bookhaven.lk<br>🛒 orders@bookhaven.lk<br>🎓 academic@bookhaven.lk<br>⚡ Response: Within 2 hours!</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Delivery Areas</h3>
+                        <p>🇱🇰 All Sri Lankan Provinces<br>🇮🇳 Major Indian Cities<br>🚚 Same-day delivery in Colombo<br>📦 Island-wide: 1-3 business days</p>
                     </div>
                 </div>
                 

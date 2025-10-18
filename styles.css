@@ -38,15 +38,35 @@ body {
 
 .nav-brand {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     font-size: 1.5rem;
     font-weight: 700;
     color: #e74c3c;
 }
 
+.nav-brand > div:first-child {
+    display: flex;
+    align-items: center;
+}
+
 .nav-brand i {
     margin-right: 10px;
     font-size: 1.8rem;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.location-info i {
+    margin-right: 4px;
+    font-size: 0.7rem;
 }
 
 .nav {
@@ -69,6 +89,21 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+.currency-selector select {
+    background: #34495e;
+    color: white;
+    border: 1px solid #5a6c7d;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.currency-selector select:hover {
+    background: #4a5f7a;
 }
 
 .search-container {
@@ -641,6 +676,33 @@ body {
 .stock-status.low-stock {
     background: #fff3cd;
     color: #856404;
+}
+
+.stock-status.out-of-stock {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.book-origin, .book-language {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    margin-bottom: 0.3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.book-origin {
+    background: #e8f5e8;
+    color: #2e7d2e;
+}
+
+.book-language {
+    background: #e3f2fd;
+    color: #1565c0;
 }
 
 .stock-status.out-of-stock {
@@ -2160,6 +2222,142 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* Branches Section */
+.branches-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f1f3f4 0%, #e8eaf6 100%);
+}
+
+.branches-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.country-section {
+    margin-bottom: 3rem;
+}
+
+.country-section h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #e74c3c;
+    width: fit-content;
+}
+
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.branch-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #e74c3c;
+}
+
+.branch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.branch-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.branch-card h4 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.branch-card p {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.branch-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.branch-features .feature {
+    background: #f8f9fa;
+    color: #495057;
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.branch-features-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    margin-top: 3rem;
+}
+
+.branch-features-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-item h4 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.feature-item p {
+    color: #6c757d;
+    line-height: 1.6;
 }
 
 /* About Section */

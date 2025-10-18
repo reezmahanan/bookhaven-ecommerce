@@ -13,6 +13,12 @@ class BookHaven {
         this.settings = JSON.parse(localStorage.getItem('settings')) || this.getDefaultSettings();
         
         this.currentUser = 'user123';
+        this.currentCurrency = localStorage.getItem('currency') || 'LKR';
+        this.exchangeRates = {
+            USD: 1,
+            LKR: 320,
+            INR: 83
+        };
         this.books = this.generateSampleBooks();
         this.filteredBooks = [...this.books];
         
@@ -25,6 +31,8 @@ class BookHaven {
         
         // Initialize immediately but show loading states
         this.setupEventListeners();
+        this.setupCurrencySelector();
+        this.detectLocation();
         this.updateCartCount();
         this.updateWishlistCount();
         this.updateCompareCount();
@@ -92,86 +100,239 @@ class BookHaven {
     }
 
     generateSampleBooks() {
-        const genres = ['Fiction', 'Non-Fiction', 'Science Fiction', 'Romance', 'Mystery', 'Biography', 'History', 'Technology'];
-        const authors = ['Harper Lee', 'George Orwell', 'F. Scott Fitzgerald', 'Yuval Noah Harari', 'Stephen King', 'Jane Austen', 'Dan Brown', 'Margaret Atwood'];
-        const publishers = ['Penguin Books', 'Harper Collins', 'Random House', 'Simon & Schuster', 'Macmillan', 'Oxford Press'];
+        this.currentCurrency = 'LKR';
+        this.exchangeRates = {
+            USD: 1,
+            LKR: 320,
+            INR: 83
+        };
+        
+        const genres = ['Fiction', 'Non-Fiction', 'Science Fiction', 'Romance', 'Mystery', 'Biography', 'History', 'Technology', 'Sri Lankan Literature', 'Indian Literature', 'Tamil Books', 'Sinhala Books', 'Spiritual & Philosophy'];
+        const authors = ['Martin Wickramasinghe', 'Mahagama Sekera', 'K. Jayatilaka', 'Gunadasa Amarasekera', 'R.K. Narayan', 'Vikram Seth', 'Arundhati Roy', 'Salman Rushdie', 'Amitav Ghosh', 'Anita Desai', 'Harper Lee', 'George Orwell', 'F. Scott Fitzgerald'];
+        const publishers = ['Godage International', 'Sarasavi Publishers', 'Penguin Random House India', 'Harper Collins India', 'Rupa Publications', 'Orient BlackSwan', 'Penguin Books', 'Oxford Press'];
         
         const sampleBooks = [
+            // Sri Lankan Literature
             {
                 id: 1,
-                title: "To Kill a Mockingbird",
-                author: "Harper Lee",
-                price: 12.99,
-                originalPrice: 15.99,
-                genre: "Fiction",
-                publisher: "Harper Collins",
-                year: 1960,
-                rating: 4.8,
-                reviews: 1247,
-                image: "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
-                description: "A gripping, heart-wrenching, and wholly remarkable tale of coming-of-age in a South poisoned by virulent prejudice.",
-                stock: 15,
-                isbn: "978-0061120084",
-                pages: 376,
-                language: "English",
-                format: "Paperback"
+                title: "Viragaya",
+                author: "Martin Wickramasinghe",
+                price: 1250,
+                originalPrice: 1500,
+                usdPrice: 3.91,
+                usdOriginalPrice: 4.69,
+                genre: "Sri Lankan Literature",
+                publisher: "Godage International",
+                year: 1956,
+                rating: 4.9,
+                reviews: 892,
+                image: "https://images.gr-assets.com/books/1347376889l/16072199.jpg",
+                description: "A masterpiece of Sinhala literature exploring human relationships and Sri Lankan village life.",
+                stock: 25,
+                isbn: "978-955-30-1234-5",
+                pages: 312,
+                language: "Sinhala",
+                format: "Paperback",
+                origin: "Sri Lanka"
             },
             {
                 id: 2,
-                title: "1984",
-                author: "George Orwell",
-                price: 13.99,
-                originalPrice: 16.99,
-                genre: "Science Fiction",
-                publisher: "Penguin Books",
-                year: 1949,
-                rating: 4.7,
-                reviews: 892,
-                image: "https://covers.openlibrary.org/b/isbn/9780452284234-L.jpg",
-                description: "A dystopian social science fiction novel that examines the role of truth and facts within politics.",
-                stock: 8,
-                isbn: "978-0452284234",
-                pages: 328,
-                language: "English",
-                format: "Hardcover"
+                title: "Kaliyugaya",
+                author: "Martin Wickramasinghe",
+                price: 1180,
+                originalPrice: 1400,
+                usdPrice: 3.69,
+                usdOriginalPrice: 4.38,
+                genre: "Sri Lankan Literature",
+                publisher: "Godage International",
+                year: 1957,
+                rating: 4.8,
+                reviews: 567,
+                image: "https://images.gr-assets.com/books/1442425632l/26793546.jpg",
+                description: "Second part of the Wickramasinghe trilogy, depicting changing social values in Sri Lanka.",
+                stock: 18,
+                isbn: "978-955-30-1235-2",
+                pages: 298,
+                language: "Sinhala",
+                format: "Paperback",
+                origin: "Sri Lanka"
             },
             {
                 id: 3,
-                title: "The Great Gatsby",
-                author: "F. Scott Fitzgerald",
-                price: 10.99,
-                originalPrice: 13.99,
-                genre: "Fiction",
-                publisher: "Simon & Schuster",
-                year: 1925,
-                rating: 4.4,
-                reviews: 1156,
-                image: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
-                description: "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
-                stock: 12,
-                isbn: "978-0743273565",
-                pages: 180,
-                language: "English",
-                format: "Paperback"
+                title: "Yuganthaya",
+                author: "Martin Wickramasinghe",
+                price: 1320,
+                originalPrice: 1600,
+                usdPrice: 4.13,
+                usdOriginalPrice: 5.00,
+                genre: "Sri Lankan Literature",
+                publisher: "Godage International",
+                year: 1949,
+                rating: 4.7,
+                reviews: 423,
+                image: "https://images.gr-assets.com/books/1442425632l/26793547.jpg",
+                description: "The final installment of the trilogy, exploring Sri Lankan society in transition.",
+                stock: 22,
+                isbn: "978-955-30-1236-9",
+                pages: 334,
+                language: "Sinhala",
+                format: "Paperback",
+                origin: "Sri Lanka"
             },
             {
                 id: 4,
-                title: "Sapiens",
-                author: "Yuval Noah Harari",
-                price: 16.99,
-                originalPrice: 19.99,
-                genre: "Non-Fiction",
-                publisher: "Harper Collins",
-                year: 2014,
+                title: "Adaraneeya Kathawak",
+                author: "K. Jayatilaka",
+                price: 980,
+                originalPrice: 1200,
+                usdPrice: 3.06,
+                usdOriginalPrice: 3.75,
+                genre: "Romance",
+                publisher: "Sarasavi Publishers",
+                year: 1968,
+                rating: 4.5,
+                reviews: 789,
+                image: "https://images.gr-assets.com/books/1388193737l/19288423.jpg",
+                description: "A beautiful love story set in colonial Sri Lanka, capturing the essence of romance and tradition.",
+                stock: 30,
+                isbn: "978-955-573-234-1",
+                pages: 256,
+                language: "Sinhala",
+                format: "Paperback",
+                origin: "Sri Lanka"
+            },
+            // Indian Literature
+            {
+                id: 5,
+                title: "The God of Small Things",
+                author: "Arundhati Roy",
+                price: 1560,
+                originalPrice: 1800,
+                usdPrice: 4.88,
+                usdOriginalPrice: 5.63,
+                genre: "Indian Literature",
+                publisher: "Penguin Random House India",
+                year: 1997,
                 rating: 4.6,
-                reviews: 934,
-                image: "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
-                description: "A brief history of humankind, exploring how our species conquered the world.",
-                stock: 20,
-                isbn: "978-0062316097",
-                pages: 464,
+                reviews: 2847,
+                image: "https://covers.openlibrary.org/b/isbn/9780812979657-L.jpg",
+                description: "Booker Prize winner exploring family secrets and forbidden love in Kerala, India.",
+                stock: 35,
+                isbn: "978-0812979657",
+                pages: 340,
                 language: "English",
-                format: "Hardcover"
+                format: "Paperback",
+                origin: "India"
+            },
+            {
+                id: 6,
+                title: "Malgudi Days",
+                author: "R.K. Narayan",
+                price: 1120,
+                originalPrice: 1350,
+                usdPrice: 3.50,
+                usdOriginalPrice: 4.22,
+                genre: "Indian Literature",
+                publisher: "Penguin Random House India",
+                year: 1982,
+                rating: 4.8,
+                reviews: 1564,
+                image: "https://covers.openlibrary.org/b/isbn/9780140185621-L.jpg",
+                description: "Collection of short stories set in the fictional town of Malgudi, depicting Indian life with humor and warmth.",
+                stock: 28,
+                isbn: "978-0140185621",
+                pages: 246,
+                language: "English",
+                format: "Paperback",
+                origin: "India"
+            },
+            {
+                id: 7,
+                title: "A Suitable Boy",
+                author: "Vikram Seth",
+                price: 2240,
+                originalPrice: 2600,
+                usdPrice: 7.00,
+                usdOriginalPrice: 8.13,
+                genre: "Indian Literature",
+                publisher: "Phoenix House",
+                year: 1993,
+                rating: 4.4,
+                reviews: 987,
+                image: "https://covers.openlibrary.org/b/isbn/9780061329142-L.jpg",
+                description: "Epic novel of post-independence India, following four families and their interconnected lives.",
+                stock: 15,
+                isbn: "978-0061329142",
+                pages: 1474,
+                language: "English",
+                format: "Hardcover",
+                origin: "India"
+            },
+            {
+                id: 8,
+                title: "Ponniyin Selvan",
+                author: "Kalki Krishnamurthy",
+                price: 1680,
+                originalPrice: 1950,
+                usdPrice: 5.25,
+                usdOriginalPrice: 6.09,
+                genre: "Tamil Books",
+                publisher: "Vanathi Pathippagam",
+                year: 1955,
+                rating: 4.9,
+                reviews: 2156,
+                image: "https://images.gr-assets.com/books/1449670169l/28186205.jpg",
+                description: "Historical Tamil novel about the Chola dynasty, considered one of the greatest works in Tamil literature.",
+                stock: 40,
+                isbn: "978-81-8493-456-7",
+                pages: 2400,
+                language: "Tamil",
+                format: "Paperback Set (5 volumes)",
+                origin: "India"
+            },
+            {
+                id: 9,
+                title: "Thirukkural",
+                author: "Thiruvalluvar",
+                price: 890,
+                originalPrice: 1100,
+                usdPrice: 2.78,
+                usdOriginalPrice: 3.44,
+                genre: "Spiritual & Philosophy",
+                publisher: "Saradha Pathippagam",
+                year: 300,
+                rating: 4.9,
+                reviews: 1876,
+                image: "https://images.gr-assets.com/books/1442481228l/26827755.jpg",
+                description: "Ancient Tamil ethical literature consisting of 1330 couplets dealing with virtue, wealth, and love.",
+                stock: 45,
+                isbn: "978-81-7635-789-2",
+                pages: 198,
+                language: "Tamil",
+                format: "Paperback",
+                origin: "India"
+            },
+            {
+                id: 10,
+                title: "Midnight's Children",
+                author: "Salman Rushdie",
+                price: 1890,
+                originalPrice: 2200,
+                usdPrice: 5.91,
+                usdOriginalPrice: 6.88,
+                genre: "Indian Literature",
+                publisher: "Vintage Books",
+                year: 1981,
+                rating: 4.3,
+                reviews: 1234,
+                image: "https://covers.openlibrary.org/b/isbn/9780812976533-L.jpg",
+                description: "Booker Prize winner chronicling India's transition from British colonialism to independence through magical realism.",
+                stock: 20,
+                isbn: "978-0812976533",
+                pages: 647,
+                language: "English",
+                format: "Paperback",
+                origin: "India"
             }
         ];
 
@@ -244,10 +405,104 @@ class BookHaven {
         return {
             theme: 'light',
             language: 'en',
-            currency: 'USD',
+            currency: 'LKR',
             itemsPerPage: 12,
             defaultView: 'grid'
         };
+    }
+
+    setupCurrencySelector() {
+        const currencySelector = document.getElementById('currencySelector');
+        if (currencySelector) {
+            currencySelector.value = this.currentCurrency;
+            currencySelector.addEventListener('change', (e) => {
+                this.currentCurrency = e.target.value;
+                localStorage.setItem('currency', this.currentCurrency);
+                this.displayBooks(); // Refresh display with new currency
+                this.showNotification(`Currency changed to ${this.getCurrencySymbol(this.currentCurrency)}`, 'success');
+            });
+        }
+    }
+
+    detectLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    this.updateLocationDisplay(position.coords.latitude, position.coords.longitude);
+                },
+                (error) => {
+                    console.log('Geolocation error:', error);
+                    // Fallback to IP-based detection or default location
+                    this.setDefaultLocation();
+                }
+            );
+        } else {
+            this.setDefaultLocation();
+        }
+    }
+
+    updateLocationDisplay(lat, lng) {
+        // Simple location detection based on coordinates
+        const locationElement = document.getElementById('currentLocation');
+        if (locationElement) {
+            if (lat >= 5.9 && lat <= 9.9 && lng >= 79.5 && lng <= 81.9) {
+                locationElement.textContent = "Sri Lanka";
+                if (this.currentCurrency === 'USD') {
+                    this.currentCurrency = 'LKR';
+                    this.updateCurrencySelector();
+                }
+            } else if (lat >= 6.5 && lat <= 37.1 && lng >= 68.0 && lng <= 97.4) {
+                locationElement.textContent = "India";
+                if (this.currentCurrency === 'USD') {
+                    this.currentCurrency = 'INR';
+                    this.updateCurrencySelector();
+                }
+            } else {
+                locationElement.textContent = "International";
+            }
+        }
+    }
+
+    setDefaultLocation() {
+        const locationElement = document.getElementById('currentLocation');
+        if (locationElement) {
+            locationElement.textContent = "Colombo, Sri Lanka";
+        }
+    }
+
+    updateCurrencySelector() {
+        const currencySelector = document.getElementById('currencySelector');
+        if (currencySelector) {
+            currencySelector.value = this.currentCurrency;
+        }
+        localStorage.setItem('currency', this.currentCurrency);
+    }
+
+    getCurrencySymbol(currency) {
+        const symbols = {
+            USD: '$',
+            LKR: '₨',
+            INR: '₹'
+        };
+        return symbols[currency] || currency;
+    }
+
+    convertPrice(usdPrice) {
+        if (this.currentCurrency === 'USD') {
+            return usdPrice.toFixed(2);
+        }
+        return Math.round(usdPrice * this.exchangeRates[this.currentCurrency]);
+    }
+
+    formatPrice(price, currency = null) {
+        const curr = currency || this.currentCurrency;
+        const symbol = this.getCurrencySymbol(curr);
+        
+        if (curr === 'USD') {
+            return `${symbol}${parseFloat(price).toFixed(2)}`;
+        } else {
+            return `${symbol}${Math.round(price).toLocaleString()}`;
+        }
     }
 
     setupEventListeners() {
@@ -548,9 +803,12 @@ class BookHaven {
                         <span class="rating-text">(${book.reviews})</span>
                     </div>
                     <div class="book-price">
-                        <span class="current-price">$${book.price}</span>
-                        ${book.originalPrice > book.price ? `<span class="original-price">$${book.originalPrice}</span>` : ''}
+                        <span class="current-price">${this.formatPrice(this.currentCurrency === 'USD' ? book.usdPrice || book.price : book.price)}</span>
+                        ${(book.originalPrice > book.price || (book.usdOriginalPrice && book.usdOriginalPrice > (book.usdPrice || book.price))) ? 
+                            `<span class="original-price">${this.formatPrice(this.currentCurrency === 'USD' ? book.usdOriginalPrice || book.originalPrice : book.originalPrice)}</span>` : ''}
                     </div>
+                    ${book.origin ? `<div class="book-origin"><i class="fas fa-globe"></i> ${book.origin}</div>` : ''}
+                    ${book.language !== 'English' ? `<div class="book-language"><i class="fas fa-language"></i> ${book.language}</div>` : ''}
                     <div class="stock-info">
                         <i class="fas fa-${book.stock > 5 ? 'check-circle' : book.stock > 0 ? 'exclamation-circle' : 'times-circle'}"></i>
                         ${book.stock > 5 ? 'In Stock' : book.stock > 0 ? `Only ${book.stock} left` : 'Out of Stock'}
