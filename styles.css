@@ -47,9 +47,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     position: relative;
     width: 100%;
+    min-width: 1000px;
+    overflow-x: auto;
 }
 
 /* Left Section: Brand & Location */
@@ -160,12 +162,13 @@ body {
 
 /* Right Section: Search & Actions */
 .nav-right {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: flex-end;
     gap: 0.75rem;
     flex-shrink: 0;
-    min-width: 400px;
+    min-width: 450px;
+    overflow: visible;
 }
 
 .search-container {
@@ -175,9 +178,11 @@ body {
 }
 
 .nav-actions {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 0.4rem;
+    flex-shrink: 0;
+    min-width: 300px;
 }
 
 .action-btn {
@@ -233,11 +238,28 @@ body {
 .auth-btn {
     display: flex !important;
     visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10;
 }
 
 .user-menu {
     position: relative;
     display: block !important;
+}
+
+/* Force visibility for all action buttons */
+.nav-actions > * {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+/* Debug: Make buttons more visible */
+.action-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    min-height: 36px;
+    min-width: 36px;
 }
 
 /* Mobile Menu Toggle (Hidden on Desktop) */
