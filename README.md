@@ -3,10 +3,16 @@
 <div align="center">
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-blue?style=for-the-badge)](https://reezmahanan.github.io/bookhaven-ecommerce)
+[![Author](https://img.shields.io/badge/👨‍💻_Author-reezmahanan-green?style=for-the-badge)](https://github.com/reezmahanan)
+[![License](https://img.shields.io/badge/📄_License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 </div>
 
-Complete frontend e-commerce bookstore system built with **HTML5, CSS3, and JavaScript**. Features shopping cart, user authentication, responsive design, and ready for backend integration.
+**Complete SRS-compliant e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Features full shopping cart, user authentication, contact system, responsive design, and ready for backend integration.
+
+**👨‍💻 Author**: [reezmahanan](https://github.com/reezmahanan)  
+**🚀 Status**: Fully Functional Frontend System  
+**📅 Last Updated**: October 18, 2025
 
 ## 🚀 Demo & Links
 
@@ -16,24 +22,48 @@ Complete frontend e-commerce bookstore system built with **HTML5, CSS3, and Java
 
 </div>
 
+## 🆕 Latest Updates (October 2025)
+
+### 🎉 **Major Feature Release**
+- ✨ **Contact Section** - Professional contact form with company information
+- 🔐 **Authentication System** - Complete login/register functionality with validation
+- 👁️ **View Toggle** - Switch between grid and list layouts for book browsing
+- 🔄 **Loading States** - Enhanced user experience with skeleton screens
+- 📱 **Mobile Optimization** - Improved responsive design for all devices
+- 🎨 **UI/UX Enhancements** - Modern animations and professional styling
+- 🐛 **Bug Fixes** - Resolved JavaScript errors and improved stability
+
 ## ✨ Current Features
 
 ### 🛍️ **E-Commerce Functionality**
-- ✅ **Product Catalog** - 12 sample books with high-quality cover images
+- ✅ **Product Catalog** - 50+ sample books with high-quality cover images
 - ✅ **Book Cover Images** - Real book covers from Open Library API
-- ✅ **Shopping Cart** - Add/remove items, quantity management
-- ✅ **Search & Filter** - Real-time search, category filters, price range
-- ✅ **User Authentication** - Login/register modal system
-- ✅ **Checkout Process** - Multi-step checkout with forms
-- ✅ **Responsive Design** - Works on mobile, tablet, desktop
+- ✅ **Shopping Cart** - Add/remove items, quantity management, persistent storage
+- ✅ **Advanced Search & Filter** - Real-time search, category filters, price range
+- ✅ **User Authentication** - Complete Login/Register modal system with validation
+- ✅ **Checkout Process** - Multi-step checkout with shipping and payment forms
+- ✅ **Wishlist System** - Save favorite books for later purchase
+- ✅ **Compare Books** - Side-by-side book comparison functionality
+- ✅ **Responsive Design** - Perfect on mobile, tablet, desktop
 
 ### 🎯 **Interactive Elements**
 - ✅ **Book Details Modal** - Detailed book view with large cover images
+- ✅ **Contact Section** - Professional contact form with company information
+- ✅ **View Toggle Buttons** - Switch between grid and list view layouts
+- ✅ **Loading States** - Skeleton screens and animated loading indicators
 - ✅ **Image Optimization** - Lazy loading and fallback placeholders
-- ✅ **Cart Sidebar** - Slide-out cart with book thumbnails
-- ✅ **Notifications** - Toast messages for user feedback
-- ✅ **Pagination** - Efficient browsing for large catalogs
-- ✅ **Local Storage** - Cart persistence between sessions
+- ✅ **Cart/Wishlist/Compare Sidebars** - Slide-out panels with full functionality
+- ✅ **Smart Notifications** - Toast messages for user feedback and actions
+- ✅ **About Section** - Company information with statistics and features
+- ✅ **Local Storage** - Cart, wishlist, and user preferences persistence
+
+### 🔧 **Technical Features**
+- ✅ **Object-Oriented Architecture** - Clean BookHaven class structure
+- ✅ **Error Handling** - Comprehensive error management and user feedback
+- ✅ **Form Validation** - Client-side validation for all forms
+- ✅ **Event Management** - Efficient event listeners and DOM manipulation
+- ✅ **CSS Animations** - Smooth transitions and hover effects
+- ✅ **Mobile-First Design** - Responsive breakpoints and touch-friendly interface
 
 ## 🚀 Quick Start
 
@@ -54,11 +84,21 @@ cd bookhaven-ecommerce
 
 ```
 bookhaven-ecommerce/
-├── index.html          # Main HTML structure
-├── styles.css          # Complete CSS styling with image optimization
-├── script.js           # JavaScript functionality with book data
-└── README.md           # Documentation
+├── index.html          # Main HTML structure with all sections
+├── styles.css          # Complete CSS styling with animations and responsive design
+├── script-new.js       # Main JavaScript functionality (recommended)
+├── script.js           # Alternative JavaScript file
+├── script-fixed.js     # Clean backup JavaScript file
+├── .gitignore          # Git ignore file
+└── README.md           # Project documentation
 ```
+
+### 🎨 **Design System**
+- **Color Palette**: Modern gradient themes with accessibility in mind
+- **Typography**: Professional font combinations (Playfair Display + Inter)
+- **Components**: Reusable CSS components with consistent styling
+- **Animations**: Smooth transitions and loading states
+- **Responsive**: Mobile-first approach with breakpoints
 
 ### 📚 **Book Images**
 - **Source**: High-quality covers from [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
@@ -148,13 +188,31 @@ We welcome contributions! Here's how you can help:
 - **💡 Features**: [Request features](https://github.com/reezmahanan/bookhaven-ecommerce/issues/new)
 - **🤝 Contribute**: [Contribution guidelines](https://github.com/reezmahanan/bookhaven-ecommerce#contributing)
 
+## 👨‍💻 About the Author
+
+**Reez Mahanan** ([reezmahanan](https://github.com/reezmahanan))
+- 🎓 Passionate Frontend Developer
+- 💻 Specializing in JavaScript, HTML5, CSS3
+- 🚀 Building modern, responsive web applications
+- 📚 Book lover and technology enthusiast
+
+### 🤝 Connect with Me
+- **GitHub**: [@reezmahanan](https://github.com/reezmahanan)
+- **Project Repository**: [BookHaven E-Commerce](https://github.com/reezmahanan/bookhaven-ecommerce)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 
 <div align="center">
 
-**BookHaven E-Commerce Bookstore System**  
-*Built with ❤️ for book lovers and developers*
+**📚 BookHaven E-Commerce Bookstore System**  
+*Built with ❤️ by [reezmahanan](https://github.com/reezmahanan) for book lovers and developers*
 
-**[🌐 Live Demo](https://reezmahanan.github.io/bookhaven-ecommerce)**
+**[🌐 Live Demo](https://reezmahanan.github.io/bookhaven-ecommerce)** | **[📂 Source Code](https://github.com/reezmahanan/bookhaven-ecommerce)**
+
+⭐ **If you found this project helpful, please give it a star!** ⭐
 
 </div>
