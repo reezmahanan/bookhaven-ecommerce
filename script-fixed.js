@@ -20,7 +20,6 @@ class BookHaven {
     }
 
     init() {
-        console.log('BookHaven initializing...');
         this.showPageLoading();
         
         // Initialize immediately but show loading states
@@ -37,40 +36,28 @@ class BookHaven {
         this.setupViewOptions();
         this.updateBreadcrumb();
         
-        console.log('BookHaven initialization complete, hiding loading in 2.5 seconds...');
-        
         // Hide page loading after everything is set up
         setTimeout(() => {
-            console.log('Hiding page loading...');
             this.hidePageLoading();
         }, 2500);
     }
 
     showPageLoading() {
-        console.log('Showing page loading...');
         const pageLoading = document.getElementById('pageLoading');
         if (pageLoading) {
             pageLoading.classList.remove('hide');
-            console.log('Page loading element found and shown');
-        } else {
-            console.log('Page loading element not found!');
         }
     }
 
     hidePageLoading() {
-        console.log('Hiding page loading...');
         const pageLoading = document.getElementById('pageLoading');
         if (pageLoading) {
             pageLoading.classList.add('hide');
-            console.log('Page loading element hidden');
             
             // Remove from DOM after transition
             setTimeout(() => {
                 pageLoading.style.display = 'none';
-                console.log('Page loading element removed from DOM');
             }, 800);
-        } else {
-            console.log('Page loading element not found when trying to hide!');
         }
     }
 
@@ -291,200 +278,6 @@ class BookHaven {
                 }
             });
         });
-
-        // Auth functionality
-        this.setupAuthListeners();
-        
-        // Contact form functionality
-        this.setupContactForm();
-    }
-
-    setupAuthListeners() {
-        const userMenuBtn = document.getElementById('userMenuBtn');
-        const authModal = document.getElementById('authModal');
-        const closeAuthModal = document.getElementById('closeAuthModal');
-        const loginTab = document.getElementById('loginTab');
-        const registerTab = document.getElementById('registerTab');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-
-        // Open auth modal when clicking account button
-        if (userMenuBtn) {
-            userMenuBtn.addEventListener('click', () => {
-                authModal.classList.add('show');
-            });
-        }
-
-        // Close auth modal
-        if (closeAuthModal) {
-            closeAuthModal.addEventListener('click', () => {
-                authModal.classList.remove('show');
-            });
-        }
-
-        // Switch between login and register
-        if (loginTab) {
-            loginTab.addEventListener('click', () => {
-                this.showLogin();
-            });
-        }
-
-        if (registerTab) {
-            registerTab.addEventListener('click', () => {
-                this.showRegister();
-            });
-        }
-
-        // Handle form submissions
-        if (loginForm) {
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleLogin(loginForm);
-            });
-        }
-
-        if (registerForm) {
-            registerForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleRegister(registerForm);
-            });
-        }
-
-        // Close modal when clicking outside
-        authModal?.addEventListener('click', (e) => {
-            if (e.target === authModal) {
-                authModal.classList.remove('show');
-            }
-        });
-    }
-
-    setupContactForm() {
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleContactForm(contactForm);
-            });
-        }
-    }
-
-    showLogin() {
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const loginTab = document.getElementById('loginTab');
-        const registerTab = document.getElementById('registerTab');
-
-        if (loginForm && registerForm) {
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-            loginTab?.classList.add('active');
-            registerTab?.classList.remove('active');
-        }
-    }
-
-    showRegister() {
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const loginTab = document.getElementById('loginTab');
-        const registerTab = document.getElementById('registerTab');
-
-        if (loginForm && registerForm) {
-            loginForm.classList.add('hidden');
-            registerForm.classList.remove('hidden');
-            loginTab?.classList.remove('active');
-            registerTab?.classList.add('active');
-        }
-    }
-
-    handleLogin(form) {
-        this.showLoading('Logging in...');
-        
-        // Simulate API call
-        setTimeout(() => {
-            const email = form.querySelector('input[type="email"]').value;
-            const password = form.querySelector('input[type="password"]').value;
-            
-            this.hideLoading();
-            
-            // Simulate successful login
-            if (email && password) {
-                this.showNotification('Login successful! Welcome back!', 'success');
-                
-                // Update UI
-                const userDisplayName = document.getElementById('userDisplayName');
-                if (userDisplayName) {
-                    const username = email.split('@')[0];
-                    userDisplayName.textContent = username;
-                }
-                
-                // Close modal
-                document.getElementById('authModal').classList.remove('show');
-                
-                // Clear form
-                form.reset();
-            } else {
-                this.showNotification('Please fill in all fields', 'error');
-            }
-        }, 1500);
-    }
-
-    handleRegister(form) {
-        this.showLoading('Creating account...');
-        
-        // Simulate API call
-        setTimeout(() => {
-            const formData = new FormData(form);
-            const name = form.querySelector('input[placeholder="Full Name"]').value;
-            const email = form.querySelector('input[type="email"]').value;
-            const password = form.querySelector('input[placeholder="Password"]').value;
-            const confirmPassword = form.querySelector('input[placeholder="Confirm Password"]').value;
-            
-            this.hideLoading();
-            
-            if (name && email && password && confirmPassword) {
-                if (password !== confirmPassword) {
-                    this.showNotification('Passwords do not match!', 'error');
-                    return;
-                }
-                
-                this.showNotification('Account created successfully! Welcome to BookHaven!', 'success');
-                
-                // Update UI
-                const userDisplayName = document.getElementById('userDisplayName');
-                if (userDisplayName) {
-                    userDisplayName.textContent = name.split(' ')[0];
-                }
-                
-                // Close modal
-                document.getElementById('authModal').classList.remove('show');
-                
-                // Clear form
-                form.reset();
-            } else {
-                this.showNotification('Please fill in all fields', 'error');
-            }
-        }, 1500);
-    }
-
-    handleContactForm(form) {
-        this.showLoading('Sending message...');
-        
-        // Simulate API call
-        setTimeout(() => {
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const subject = document.getElementById('contactSubject').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            this.hideLoading();
-            
-            if (name && email && subject && message) {
-                this.showNotification('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.', 'success');
-                form.reset();
-            } else {
-                this.showNotification('Please fill in all fields', 'error');
-            }
-        }, 1200);
     }
 
     handleSearch(query) {
@@ -780,20 +573,11 @@ class BookHaven {
     }
     
     setupViewOptions() {
-        const viewButtons = document.querySelectorAll('.view-btn');
+        const gridBtn = document.getElementById('gridView');
+        const listBtn = document.getElementById('listView');
         
-        viewButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const viewType = btn.getAttribute('data-view');
-                this.setView(viewType);
-                
-                // Update active state
-                viewButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                console.log(`Switched to ${viewType} view`);
-            });
-        });
+        if (gridBtn) gridBtn.addEventListener('click', () => this.setView('grid'));
+        if (listBtn) listBtn.addEventListener('click', () => this.setView('list'));
     }
     
     updateBreadcrumb() { 
@@ -817,21 +601,7 @@ class BookHaven {
     setView(viewType) {
         const container = document.getElementById('booksContainer');
         if (container) {
-            // Remove existing view classes
-            container.classList.remove('books-grid', 'books-list', 'list-view');
-            
-            if (viewType === 'list') {
-                container.classList.add('books-grid', 'list-view');
-            } else {
-                container.classList.add('books-grid');
-            }
-            
-            // Add visual feedback
-            this.showNotification(`Switched to ${viewType} view`, 'info');
-            
-            console.log(`View changed to ${viewType}, container classes:`, container.className);
-        } else {
-            console.error('Books container not found!');
+            container.className = viewType === 'grid' ? 'books-grid' : 'books-list';
         }
     }
 
@@ -879,6 +649,5 @@ class BookHaven {
 // Initialize the application
 let bookHaven;
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, creating BookHaven instance...');
     bookHaven = new BookHaven();
 });

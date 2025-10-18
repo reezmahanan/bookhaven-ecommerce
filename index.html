@@ -41,7 +41,7 @@
                     <span class="cart-count">0</span>
                 </button>
                 <div class="user-menu">
-                    <button class="auth-btn" onclick="toggleUserMenu()" id="userMenuBtn">
+                    <button class="auth-btn" id="userMenuBtn">
                         <i class="fas fa-user"></i>
                         <span id="userDisplayName">Account</span>
                     </button>
@@ -265,6 +265,77 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>We'd love to hear from you! Get in touch with any questions or feedback.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Our Store</h3>
+                        <p>123 BookHaven Street<br>Literary District, Reading City<br>RC 12345</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>Phone: +1 (555) 123-BOOK<br>Toll Free: 1-800-BOOKHAVEN<br>Mon-Sat: 9AM-8PM</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>info@bookhaven.com<br>support@bookhaven.com<br>We reply within 24 hours!</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <h3><i class="fas fa-paper-plane"></i> Send us a Message</h3>
+                        
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select id="contactSubject" required>
+                                <option value="">Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Customer Support</option>
+                                <option value="orders">Order Questions</option>
+                                <option value="books">Book Recommendations</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="contact-submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Shopping Cart Sidebar -->
     <div class="cart-sidebar sidebar" id="cartSidebar">
         <div class="sidebar-header">
@@ -358,11 +429,11 @@
     <!-- Authentication Modal -->
     <div class="modal" id="authModal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+            <span class="close-modal" id="closeAuthModal">&times;</span>
             <div class="auth-container">
                 <div class="auth-tabs">
-                    <button class="auth-tab active" onclick="showLogin()">Login</button>
-                    <button class="auth-tab" onclick="showRegister()">Register</button>
+                    <button class="auth-tab active" id="loginTab">Login</button>
+                    <button class="auth-tab" id="registerTab">Register</button>
                 </div>
                 
                 <!-- Login Form -->

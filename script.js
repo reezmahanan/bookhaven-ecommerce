@@ -1,5 +1,5 @@
 // BookHaven E-commerce JavaScript - Complete SRS Implementation
-// Author: GitHub Copilot
+// Author: GitHub Copilot  
 // Date: October 18, 2025
 
 class BookHaven {
@@ -12,7 +12,7 @@ class BookHaven {
         this.userProfile = JSON.parse(localStorage.getItem('userProfile')) || this.getDefaultProfile();
         this.settings = JSON.parse(localStorage.getItem('settings')) || this.getDefaultSettings();
         
-        this.currentUser = 'user123'; // Simulated user ID
+        this.currentUser = 'user123';
         this.books = this.generateSampleBooks();
         this.filteredBooks = [...this.books];
         
@@ -20,11 +20,14 @@ class BookHaven {
     }
 
     init() {
+        this.showPageLoading();
+        
+        // Initialize immediately but show loading states
         this.setupEventListeners();
         this.updateCartCount();
         this.updateWishlistCount();
         this.updateCompareCount();
-        this.displayBooks();
+        this.displayBooks(true); // Show skeleton loading
         this.displayRecentlyViewed();
         this.initializeSearch();
         this.setupModals();
@@ -32,6 +35,47 @@ class BookHaven {
         this.setupFilters();
         this.setupViewOptions();
         this.updateBreadcrumb();
+        
+        // Hide page loading after everything is set up
+        setTimeout(() => {
+            this.hidePageLoading();
+        }, 2500);
+    }
+
+    showPageLoading() {
+        const pageLoading = document.getElementById('pageLoading');
+        if (pageLoading) {
+            pageLoading.classList.remove('hide');
+        }
+    }
+
+    hidePageLoading() {
+        const pageLoading = document.getElementById('pageLoading');
+        if (pageLoading) {
+            pageLoading.classList.add('hide');
+            
+            // Remove from DOM after transition
+            setTimeout(() => {
+                pageLoading.style.display = 'none';
+            }, 800);
+        }
+    }
+
+    showLoading(text = 'Loading...') {
+        const overlay = document.getElementById('loadingOverlay');
+        const loadingText = document.getElementById('loadingText');
+        
+        if (overlay && loadingText) {
+            loadingText.textContent = text;
+            overlay.classList.add('show');
+        }
+    }
+
+    hideLoading() {
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) {
+            overlay.classList.remove('show');
+        }
     }
 
     // ==================== SAMPLE DATA GENERATION ====================
