@@ -1,4 +1,4 @@
-# 📚 BookHaven - Premium E-Commerce Bookstore# 📚 BookHaven - E-Commerce Bookstore# 📚 BookHaven - E-Commerce Bookstore
+# 📚 BookHaven - E-Commerce Bookstore# 📚 BookHaven - Premium E-Commerce Bookstore# 📚 BookHaven - E-Commerce Bookstore# 📚 BookHaven - E-Commerce Bookstore
 
 
 
@@ -6,15 +6,15 @@
 
 
 
-![BookHaven Logo](https://via.placeholder.com/150x150/2c3e50/ffffff?text=📚)**Complete e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Specializes in **Psychology & Finance** books for the **Sri Lankan market**.**Complete e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Specializes in **Psychology & Finance** books for the **Sri Lankan market**.
+![BookHaven Logo](https://via.placeholder.com/150x150/2c3e50/ffffff?text=📚)<div align="center">
 
 
 
-**Your Premier Destination for Psychology & Finance Books in Sri Lanka**
+**Complete e-commerce bookstore system specializing in Psychology & Finance books for Sri Lanka**
 
 
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Now-success?style=for-the-badge)](https://reezmahanan.github.io/bookhaven-ecommerce)## 🚀 Live Demo## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Now-success?style=for-the-badge)](https://reezmahanan.github.io/bookhaven-ecommerce)![BookHaven Logo](https://via.placeholder.com/150x150/2c3e50/ffffff?text=📚)**Complete e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Specializes in **Psychology & Finance** books for the **Sri Lankan market**.**Complete e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Specializes in **Psychology & Finance** books for the **Sri Lankan market**.
 
 [![GitHub Stars](https://img.shields.io/github/stars/reezmahanan/bookhaven-ecommerce?style=for-the-badge)](https://github.com/reezmahanan/bookhaven-ecommerce)
 
@@ -22,7 +22,7 @@
 
 
 
-</div>**🌐 [Live Website](https://reezmahanan.github.io/bookhaven-ecommerce)****🌐 [Live Website](https://reezmahanan.github.io/bookhaven-ecommerce)**
+</div>**Your Premier Destination for Psychology & Finance Books in Sri Lanka**
 
 
 
@@ -30,47 +30,39 @@
 
 
 
-## 🌟 About BookHaven## ✨ Features## ✨ Features
+## 🚀 Live Demo[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Now-success?style=for-the-badge)](https://reezmahanan.github.io/bookhaven-ecommerce)## 🚀 Live Demo## 🚀 Live Demo
 
 
 
-BookHaven is a **modern, full-featured e-commerce bookstore** specializing in psychology and finance books for the Sri Lankan market. Built with vanilla JavaScript, it offers a complete shopping experience with advanced features like smart location tracking, comprehensive filtering, and a responsive design that works flawlessly on all devices.
+**Experience BookHaven:** [https://reezmahanan.github.io/bookhaven-ecommerce](https://reezmahanan.github.io/bookhaven-ecommerce)[![GitHub Stars](https://img.shields.io/github/stars/reezmahanan/bookhaven-ecommerce?style=for-the-badge)](https://github.com/reezmahanan/bookhaven-ecommerce)
 
 
 
-## 🚀 Live Demo- 📖 **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature- � **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature
+## ✨ Key Features[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 
 
-**Experience BookHaven:** [https://reezmahanan.github.io/bookhaven-ecommerce](https://reezmahanan.github.io/bookhaven-ecommerce)- 🛒 **Shopping Cart** - Add/remove items, quantity management, persistent storage- 🛒 **Shopping Cart** - Add/remove items, quantity management, persistent storage
+### 🛒 **Complete E-Commerce Experience**
 
+- **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature
 
-
-## ✨ Key Features- 🔍 **Advanced Search & Filters** - Category, author, price, rating filters- 🔍 **Advanced Search & Filters** - Category, author, price, rating filters
-
-
-
-### 🛒 **Complete E-Commerce Experience**- 🗺️ **Smart Location Tracking** - Click location to refresh with geolocation- 🗺️ **Smart Location Tracking** - Click location to refresh with geolocation
-
-- **30+ Curated Books** - Handpicked psychology, finance, science, and Sri Lankan literature
-
-- **Smart Shopping Cart** - Add, remove, quantity management with persistent storage- 📧 **Contact System** - Professional form with validation- 📧 **Contact System** - Professional form with validation
+- **Smart Shopping Cart** - Add/remove, quantity management, persistent storage</div>**🌐 [Live Website](https://reezmahanan.github.io/bookhaven-ecommerce)****🌐 [Live Website](https://reezmahanan.github.io/bookhaven-ecommerce)**
 
 - **Wishlist & Compare** - Save favorites and compare books side-by-side
 
-- **Advanced Search** - Filter by category, author, price, rating, and availability- 🇱🇰 **Sri Lankan Market Focus** - LKR pricing (₨999-₨2,500), local branches- 🇱🇰 **Sri Lankan Market Focus** - LKR pricing (₨999-₨2,500), local branches
+- **Advanced Search** - Filter by category, author, price, rating, availability
 
 - **Secure Checkout** - Multi-step checkout process with form validation
 
-- 📱 **Mobile Responsive** - Perfect on all devices- 📱 **Mobile Responsive** - Perfect on all devices
+---
 
 ### 🇱🇰 **Sri Lankan Market Focus**
 
-- **LKR Pricing** - Affordable prices ranging from ₨999 to ₨2,500- 👤 **User Authentication** - Login/register system- 👤 **User Authentication** - Login/register system
+- **LKR Pricing** - Affordable prices ranging from ₨999 to ₨2,500
 
-- **Local Branches** - Physical stores in Colombo, Kandy, Galle, and Jaffna
+- **Local Branches** - Physical stores in Colombo, Kandy, Galle, Jaffna
 
-- **Cultural Content** - Dedicated section for Sri Lankan literature- 💝 **Wishlist & Compare** - Save favorites and compare books- 💝 **Wishlist & Compare** - Save favorites and compare books
+- **Cultural Content** - Dedicated section for Sri Lankan literature## 🌟 About BookHaven## ✨ Features## ✨ Features
 
 - **Local Contact** - Sri Lankan phone numbers and addresses
 
@@ -78,7 +70,7 @@ BookHaven is a **modern, full-featured e-commerce bookstore** specializing in ps
 
 ### 🎯 **Smart Features**
 
-- **📍 Location Tracking** - Click the location in header to refresh your current position## 🛠️ Tech Stack## �️ Tech Stack
+- **📍 Location Tracking** - Click location in header to refresh your positionBookHaven is a **modern, full-featured e-commerce bookstore** specializing in psychology and finance books for the Sri Lankan market. Built with vanilla JavaScript, it offers a complete shopping experience with advanced features like smart location tracking, comprehensive filtering, and a responsive design that works flawlessly on all devices.
 
 - **💱 Multi-Currency** - Automatic currency adjustment based on location
 
@@ -86,23 +78,23 @@ BookHaven is a **modern, full-featured e-commerce bookstore** specializing in ps
 
 - **🔔 Notifications** - Real-time toast notifications for user actions
 
-- **💾 Data Persistence** - Cart and preferences saved in browser storage- **Frontend**: HTML5, CSS3, JavaScript ES6+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **💾 Data Persistence** - Cart and preferences saved in browser storage## 🚀 Live Demo- 📖 **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature- � **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature
 
 
 
-### 📱 **Modern Design**- **Styling**: Flexbox, Grid, Responsive Design- **Styling**: Flexbox, Grid, Responsive Design
+### 📱 **Modern Design**
 
 - **Mobile-First** - Perfect responsive experience on all devices
 
-- **Fast Loading** - Optimized performance with lazy loading- **Icons**: Font Awesome- **Icons**: Font Awesome
+- **Fast Loading** - Optimized performance with lazy loading**Experience BookHaven:** [https://reezmahanan.github.io/bookhaven-ecommerce](https://reezmahanan.github.io/bookhaven-ecommerce)- 🛒 **Shopping Cart** - Add/remove items, quantity management, persistent storage- 🛒 **Shopping Cart** - Add/remove items, quantity management, persistent storage
 
 - **Accessibility** - WCAG compliant with proper ARIA labels
 
-- **Professional UI** - Modern gradient design with smooth animations- **Images**: Open Library Covers API- **Images**: Open Library Covers API
+- **Professional UI** - Modern gradient design with smooth animations
 
 
 
-## 🛠️ Technology Stack- **Storage**: localStorage- **Storage**: localStorage
+## 🛠️ Technology Stack## ✨ Key Features- 🔍 **Advanced Search & Filters** - Category, author, price, rating filters- 🔍 **Advanced Search & Filters** - Category, author, price, rating filters
 
 
 
@@ -110,112 +102,337 @@ BookHaven is a **modern, full-featured e-commerce bookstore** specializing in ps
 
 Frontend:     HTML5, CSS3, JavaScript ES6+
 
-Styling:      CSS Grid, Flexbox, Custom Properties## 🚀 Quick Start## 🚀 Quick Start
+Styling:      CSS Grid, Flexbox, Custom Properties### 🛒 **Complete E-Commerce Experience**- 🗺️ **Smart Location Tracking** - Click location to refresh with geolocation- 🗺️ **Smart Location Tracking** - Click location to refresh with geolocation
 
 Icons:        Font Awesome 6.0
 
-Images:       Open Library Covers API
+Images:       Open Library Covers API- **30+ Curated Books** - Handpicked psychology, finance, science, and Sri Lankan literature
 
 Storage:      localStorage
 
-Responsive:   Mobile-first design with breakpoints1. Clone the repository1. Clone the repository
+Responsive:   Mobile-first design with breakpoints- **Smart Shopping Cart** - Add, remove, quantity management with persistent storage- 📧 **Contact System** - Professional form with validation- 📧 **Contact System** - Professional form with validation
 
 Performance:  Lazy loading, optimized images
 
-```2. Open `index.html` in your browser2. Open `index.html` in your browser
+```- **Wishlist & Compare** - Save favorites and compare books side-by-side
 
 
 
-## 📖 Book Collection3. Start exploring books!3. Start exploring books!
+## 📖 Featured Book Collection- **Advanced Search** - Filter by category, author, price, rating, and availability- 🇱🇰 **Sri Lankan Market Focus** - LKR pricing (₨999-₨2,500), local branches- 🇱🇰 **Sri Lankan Market Focus** - LKR pricing (₨999-₨2,500), local branches
 
 
 
-### 🧠 Psychology & Self-Help
+### 🧠 Psychology & Self-Help- **Secure Checkout** - Multi-step checkout process with form validation
 
 - **Atomic Habits** by James Clear
 
-- **The Psychology of Money** by Morgan Housel```bash```bash
+- **The Psychology of Money** by Morgan Housel- 📱 **Mobile Responsive** - Perfect on all devices- 📱 **Mobile Responsive** - Perfect on all devices
 
 - **Think and Grow Rich** by Napoleon Hill
 
-- **The 7 Habits of Highly Effective People** by Stephen Coveygit clone https://github.com/reezmahanan/bookhaven-ecommerce.gitgit clone https://github.com/reezmahanan/bookhaven-ecommerce.git
+- **The 7 Habits of Highly Effective People** by Stephen Covey### 🇱🇰 **Sri Lankan Market Focus**
 
 - **The Power of Now** by Eckhart Tolle
 
-cd bookhaven-ecommercecd bookhaven-ecommerce
+- **LKR Pricing** - Affordable prices ranging from ₨999 to ₨2,500- 👤 **User Authentication** - Login/register system- 👤 **User Authentication** - Login/register system
 
 ### 💰 Finance & Investment
 
-- **Rich Dad Poor Dad** by Robert Kiyosaki# Open index.html in browser# Open index.html in browser
+- **Rich Dad Poor Dad** by Robert Kiyosaki- **Local Branches** - Physical stores in Colombo, Kandy, Galle, and Jaffna
 
 - **The Intelligent Investor** by Benjamin Graham
 
-- **The Millionaire Mind** by Thomas Stanley``````
+- **The Millionaire Mind** by Thomas Stanley- **Cultural Content** - Dedicated section for Sri Lankan literature- 💝 **Wishlist & Compare** - Save favorites and compare books- 💝 **Wishlist & Compare** - Save favorites and compare books
 
 - **Cash Flow Quadrant** by Robert Kiyosaki
 
-
+- **Local Contact** - Sri Lankan phone numbers and addresses
 
 ### 🇱🇰 Sri Lankan Literature
 
-- **Viragaya** by W.A. Silva## 📱 Key Highlights## � Key Highlights
+- **Viragaya** by W.A. Silva
 
 - **Ponniyin Selvan** by Kalki Krishnamurthy
 
-- **Gamperaliya** by Martin Wickramasinghe
+- **Gamperaliya** by Martin Wickramasinghe### 🎯 **Smart Features**
 
 
 
-### 🔬 Science & Education- ✅ **Click location** in header to refresh your current location- ✅ **Click location** in header to refresh your current location
+### 🔬 Science & Education- **📍 Location Tracking** - Click the location in header to refresh your current position## 🛠️ Tech Stack## �️ Tech Stack
 
 - **Sapiens** by Yuval Noah Harari
 
-- **Educated** by Tara Westover- ✅ **Browse 30+ books** with real covers and Sri Lankan pricing- ✅ **Browse 30+ books** with real covers and Sri Lankan pricing
+- **Educated** by Tara Westover- **💱 Multi-Currency** - Automatic currency adjustment based on location
 
 - **The Gene** by Siddhartha Mukherjee
 
-- ✅ **Test shopping cart** - add books, manage quantities- ✅ **Test shopping cart** - add books, manage quantities
+- **📧 Contact System** - Professional contact form with email validation
 
 ## 🚀 Quick Start
 
-- ✅ **Try filters** - search by category, author, price range- ✅ **Try filters** - search by category, author, price range
+- **🔔 Notifications** - Real-time toast notifications for user actions
 
 ### Option 1: Direct Use
 
-1. **Visit the live demo:** [BookHaven Website](https://reezmahanan.github.io/bookhaven-ecommerce)- ✅ **Contact form** - test the enhanced validation system- ✅ **Contact form** - test the enhanced validation system
+1. **Visit the live demo:** [BookHaven Website](https://reezmahanan.github.io/bookhaven-ecommerce)- **💾 Data Persistence** - Cart and preferences saved in browser storage- **Frontend**: HTML5, CSS3, JavaScript ES6+- **Frontend**: HTML5, CSS3, JavaScript ES6+
 
 2. **Start shopping** immediately - no setup required!
 
-- ✅ **Mobile responsive** - works perfectly on phones and tablets- ✅ **Mobile responsive** - works perfectly on phones and tablets
+
 
 ### Option 2: Local Development
 
-```bash
+```bash### 📱 **Modern Design**- **Styling**: Flexbox, Grid, Responsive Design- **Styling**: Flexbox, Grid, Responsive Design
 
 # Clone the repository
 
-git clone https://github.com/reezmahanan/bookhaven-ecommerce.git## 🎯 Perfect For## 🎯 Perfect For
+git clone https://github.com/reezmahanan/bookhaven-ecommerce.git- **Mobile-First** - Perfect responsive experience on all devices
 
 
 
-# Navigate to project folder
+# Navigate to project folder- **Fast Loading** - Optimized performance with lazy loading- **Icons**: Font Awesome- **Icons**: Font Awesome
 
 cd bookhaven-ecommerce
 
-- Learning e-commerce development- Learning e-commerce development
+- **Accessibility** - WCAG compliant with proper ARIA labels
 
 # Open in browser
 
-open index.html- Portfolio showcase projects- Portfolio showcase projects
+open index.html- **Professional UI** - Modern gradient design with smooth animations- **Images**: Open Library Covers API- **Images**: Open Library Covers API
 
-# OR
+# OR use live server
 
-python -m http.server 8000  # Then visit http://localhost:8000- Starting an online bookstore business- Starting an online bookstore business
+python -m http.server 8000  # Then visit http://localhost:8000
 
 ```
 
+## 🛠️ Technology Stack- **Storage**: localStorage- **Storage**: localStorage
+
+## 📂 Project Structure
+
+
+
+```
+
+bookhaven-ecommerce/```
+
+├── index.html          # Main HTML structure (complete website)
+
+├── script-new.js       # JavaScript functionality (all features)Frontend:     HTML5, CSS3, JavaScript ES6+
+
+├── styles.css          # Complete CSS styling (responsive design)
+
+├── README.md           # Project documentationStyling:      CSS Grid, Flexbox, Custom Properties## 🚀 Quick Start## 🚀 Quick Start
+
+├── LICENSE             # MIT License
+
+└── .gitignore          # Git ignore patternsIcons:        Font Awesome 6.0
+
+```
+
+Images:       Open Library Covers API
+
+## 🎮 How to Use
+
+Storage:      localStorage
+
+### 🛍️ **Shopping Experience**
+
+1. **Browse Books** - Scroll through curated collectionResponsive:   Mobile-first design with breakpoints1. Clone the repository1. Clone the repository
+
+2. **Use Filters** - Filter by category, author, price, rating
+
+3. **Add to Cart** - Click "Add to Cart" on any bookPerformance:  Lazy loading, optimized images
+
+4. **Manage Cart** - View cart sidebar, adjust quantities
+
+5. **Checkout** - Complete purchase with shipping details```2. Open `index.html` in your browser2. Open `index.html` in your browser
+
+
+
+### 🔍 **Advanced Features**
+
+1. **Location Tracking** - Click location in header to refresh
+
+2. **Compare Books** - Add books to compare side-by-side## 📖 Book Collection3. Start exploring books!3. Start exploring books!
+
+3. **Wishlist** - Save books for later purchase
+
+4. **Search** - Use search bar for quick book finding
+
+5. **Contact** - Use contact form for inquiries
+
+### 🧠 Psychology & Self-Help
+
+### 📱 **Mobile Experience**
+
+- **Touch-Friendly** - Large buttons optimized for mobile- **Atomic Habits** by James Clear
+
+- **Swipe Navigation** - Smooth scrolling and interactions
+
+- **Responsive Layout** - Perfect on phones, tablets, desktops- **The Psychology of Money** by Morgan Housel```bash```bash
+
+
+
+## 🎯 Perfect For- **Think and Grow Rich** by Napoleon Hill
+
+
+
+- **📖 Book Lovers** - Discover psychology and finance books- **The 7 Habits of Highly Effective People** by Stephen Coveygit clone https://github.com/reezmahanan/bookhaven-ecommerce.gitgit clone https://github.com/reezmahanan/bookhaven-ecommerce.git
+
+- **🎓 Students** - Learn web development with real-world project
+
+- **💼 Developers** - Use as portfolio showcase or learning reference- **The Power of Now** by Eckhart Tolle
+
+- **🏪 Entrepreneurs** - Foundation for starting online bookstore
+
+- **🇱🇰 Sri Lankans** - Local pricing and content in LKR currencycd bookhaven-ecommercecd bookhaven-ecommerce
+
+
+
+## 🔧 Customization### 💰 Finance & Investment
+
+
+
+### 📚 **Adding Books**- **Rich Dad Poor Dad** by Robert Kiyosaki# Open index.html in browser# Open index.html in browser
+
+Edit the `generateSampleBooks()` function in `script-new.js`:
+
+```javascript- **The Intelligent Investor** by Benjamin Graham
+
+{
+
+    id: 31,- **The Millionaire Mind** by Thomas Stanley``````
+
+    title: "Your Book Title",
+
+    author: "Author Name",- **Cash Flow Quadrant** by Robert Kiyosaki
+
+    price: 1599,
+
+    originalPrice: 1899,
+
+    currency: "LKR",
+
+    category: "psychology",### 🇱🇰 Sri Lankan Literature
+
+    rating: 4.5,
+
+    // ... more properties- **Viragaya** by W.A. Silva## 📱 Key Highlights## � Key Highlights
+
+}
+
+```- **Ponniyin Selvan** by Kalki Krishnamurthy
+
+
+
+### 🎨 **Styling**- **Gamperaliya** by Martin Wickramasinghe
+
+Modify CSS custom properties in `styles.css`:
+
+```css
+
+:root {
+
+    --primary-color: #2c3e50;### 🔬 Science & Education- ✅ **Click location** in header to refresh your current location- ✅ **Click location** in header to refresh your current location
+
+    --secondary-color: #e74c3c;
+
+    --accent-color: #3498db;- **Sapiens** by Yuval Noah Harari
+
+    /* ... more variables */
+
+}- **Educated** by Tara Westover- ✅ **Browse 30+ books** with real covers and Sri Lankan pricing- ✅ **Browse 30+ books** with real covers and Sri Lankan pricing
+
+```
+
+- **The Gene** by Siddhartha Mukherjee
+
+## 📊 Performance
+
+- ✅ **Test shopping cart** - add books, manage quantities- ✅ **Test shopping cart** - add books, manage quantities
+
+- **⚡ Fast Loading** - Initial page load under 2 seconds
+
+- **📱 Mobile Optimized** - 95+ Google Lighthouse score## 🚀 Quick Start
+
+- **🔍 SEO Ready** - Proper meta tags and structured data
+
+- **♿ Accessible** - WCAG 2.1 AA compliant- ✅ **Try filters** - search by category, author, price range- ✅ **Try filters** - search by category, author, price range
+
+- **💾 Efficient Storage** - Minimal localStorage usage
+
+### Option 1: Direct Use
+
+## 🤝 Contributing
+
+1. **Visit the live demo:** [BookHaven Website](https://reezmahanan.github.io/bookhaven-ecommerce)- ✅ **Contact form** - test the enhanced validation system- ✅ **Contact form** - test the enhanced validation system
+
+We welcome contributions! Here are ways you can help:
+
+2. **Start shopping** immediately - no setup required!
+
+- 🐛 **Report bugs** by creating an issue
+
+- ✨ **Suggest features** for enhancement- ✅ **Mobile responsive** - works perfectly on phones and tablets- ✅ **Mobile responsive** - works perfectly on phones and tablets
+
+- 📚 **Add more books** to the collection
+
+- 🌍 **Improve localization** (Sinhala/Tamil support)### Option 2: Local Development
+
+- 🎨 **Enhance design** and user experience
+
+```bash
+
+## 📄 License
+
+# Clone the repository
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+git clone https://github.com/reezmahanan/bookhaven-ecommerce.git## 🎯 Perfect For## 🎯 Perfect For
+
+## 🙏 Acknowledgments
+
+
+
+- **📚 Open Library** - Book cover images API
+
+- **🎨 Font Awesome** - Icons and graphics# Navigate to project folder
+
+- **🇱🇰 Sri Lankan Community** - Local market insights and feedback
+
+cd bookhaven-ecommerce
+
+## 👨‍💻 Developer
+
+- Learning e-commerce development- Learning e-commerce development
+
+**Created by:** [reezmahanan](https://github.com/reezmahanan)  
+
+**Portfolio:** Professional full-stack developer specializing in e-commerce solutions  # Open in browser
+
+**Contact:** Available through the website's contact form
+
+open index.html- Portfolio showcase projects- Portfolio showcase projects
+
+---
+
+# OR
+
+<div align="center">
+
+python -m http.server 8000  # Then visit http://localhost:8000- Starting an online bookstore business- Starting an online bookstore business
+
+**⭐ Star this repository if you found it helpful!**  
+
+**🔗 Share with fellow developers and book enthusiasts!**  ```
+
+**📧 Contact us through the website for business inquiries!**
+
 - Exploring psychology and finance books- Exploring psychology and finance books
 
+</div>
 ## 📂 Project Structure
 
 
