@@ -280,9 +280,8 @@ We welcome contributions! Here's how you can help:
 
 **Reezma hanan** ([reezmahanan](https://github.com/reezmahanan))
 - 🎓 Passionate Frontend Developer
-- 💻 Specializing in JavaScript, HTML5, CSS3
 - 🚀 Building modern, responsive web applications
-- 📚 Book lover and technology enthusiast
+
 
 ### 🤝 Connect with Me
 - **GitHub**: [@reezmahanan](https://github.com/reezmahanan)
