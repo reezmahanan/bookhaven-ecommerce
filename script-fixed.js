@@ -1,8 +1,6 @@
 // BookHaven E-commerce JavaScript - Complete SRS Implementation
-// Author: GitHub Copilot  
-// Date: October 18, 2025
-
-class BookHaven {
+// Author: reezmahanan
+// Date: October 18, 2025class BookHaven {
     constructor() {
         this.cart = JSON.parse(localStorage.getItem('cart')) || [];
         this.wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
