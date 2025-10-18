@@ -62,11 +62,41 @@ body {
     color: #bdc3c7;
     margin-top: 2px;
     font-weight: 400;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.location-info:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 .location-info i {
     margin-right: 4px;
     font-size: 0.7rem;
+}
+
+.location-refresh {
+    margin-left: 4px;
+    margin-right: 0;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.location-refresh:hover {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+.location-refresh.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .nav {
@@ -104,6 +134,51 @@ body {
 
 .currency-selector select:hover {
     background: #4a5f7a;
+}
+
+.deals-link {
+    background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px !important;
+    font-weight: 600 !important;
+    animation: pulse-deals 2s infinite;
+}
+
+@keyframes pulse-deals {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.notifications-btn {
+    position: relative;
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.notifications-btn:hover {
+    background: #e67e22;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 .search-container {
@@ -283,27 +358,331 @@ body {
 
 .hero-content p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     opacity: 0.9;
     animation: fadeInUp 1s ease 0.2s both;
 }
 
+.hero-content p:first-of-type {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #f39c12, #e74c3c, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
 .cta-btn {
-    background: #e74c3c;
-    color: white;
     border: none;
     padding: 1rem 2rem;
     font-size: 1.1rem;
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
-    animation: fadeInUp 1s ease 0.4s both;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.cta-btn:hover {
-    background: #c0392b;
-    transform: translateY(-2px);
+.cta-btn.primary {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.cta-btn.primary:hover {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+    background: white;
+    color: #2c3e50;
+    transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn {
+        width: 250px;
+        justify-content: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content p:first-of-type {
+        font-size: 1.1rem;
+    }
+}
+
+/* Featured Psychology & Finance Books Section */
+.featured-psychology-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-psychology-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="brain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="%23f39c12" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23brain)"/></svg>');
+    pointer-events: none;
+}
+
+.psychology-highlights {
+    position: relative;
+    z-index: 2;
+}
+
+.highlight-card {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px;
+    gap: 2rem;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-card.featured {
+    border: 3px solid #f39c12;
+    transform: scale(1.02);
+}
+
+.highlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #f39c12, #e67e22);
+}
+
+.highlight-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.highlight-content h3 {
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.highlight-content p {
+    color: #7f8c8d;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.highlight-price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.highlight-price .price {
+    color: #27ae60;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.highlight-price .original-price {
+    color: #95a5a6;
+    text-decoration: line-through;
+    font-size: 1.1rem;
+}
+
+.highlight-price .discount {
+    background: #e74c3c;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.highlight-btn {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.highlight-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+.highlight-image img {
+    width: 180px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.highlight-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.bestsellers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.bestseller-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bestseller-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #f39c12, #e67e22);
+    transition: left 0.3s ease;
+}
+
+.bestseller-item:hover::before {
+    left: 0;
+}
+
+.bestseller-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.bestseller-item img {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.bestseller-item:hover img {
+    transform: scale(1.1);
+}
+
+.bestseller-item h4 {
+    color: #2c3e50;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    line-height: 1.3;
+}
+
+.bestseller-item p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+.bestseller-item .rating {
+    color: #f39c12;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.bestseller-item .price {
+    color: #27ae60;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Psychology Section */
+@media (max-width: 768px) {
+    .highlight-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .highlight-image {
+        order: -1;
+    }
+    
+    .bestsellers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .bestseller-item img {
+        width: 80px;
+        height: 110px;
+    }
 }
 
 /* Books Section */
@@ -2224,6 +2603,338 @@ body {
     gap: 0.5rem;
 }
 
+/* Deals & Discounts Section */
+.deals-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+}
+
+.discount-banner {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.discount-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.discount-badge {
+    background: #f39c12;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.banner-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 1rem;
+}
+
+.timer-unit {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.timer-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.timer-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.discount-categories h3,
+.special-offers h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 3rem 0 2rem 0;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.category-deal {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.category-deal:hover {
+    transform: translateY(-5px);
+    border-color: #e74c3c;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    font-size: 2rem;
+    color: white;
+}
+
+.discount-percent {
+    background: #27ae60;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.shop-category-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.shop-category-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.offer-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px solid #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+    border-color: #e74c3c;
+    transform: translateY(-3px);
+}
+
+.offer-card.featured-offer {
+    border-color: #f39c12;
+    background: linear-gradient(135deg, #fff9e6 0%, #ffeaa7 100%);
+    position: relative;
+}
+
+.offer-card.featured-offer::before {
+    content: '🌟 FEATURED';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f39c12;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.offer-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.offer-header i {
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.offer-code {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    letter-spacing: 2px;
+}
+
+.copy-code-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.copy-code-btn:hover {
+    background: #219a52;
+    transform: scale(1.05);
+}
+
+.loyalty-program {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+}
+
+.loyalty-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.loyalty-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f39c12;
+}
+
+.loyalty-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.benefit i {
+    color: #f39c12;
+    font-size: 1.2rem;
+}
+
+.join-rewards-btn {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.join-rewards-btn:hover {
+    background: #e67e22;
+    transform: scale(1.05);
+}
+
+.loyalty-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tier {
+    background: rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.tier.active {
+    background: rgba(243,156,18,0.2);
+    border: 2px solid #f39c12;
+}
+
+.tier-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem auto;
+    font-size: 1.5rem;
+}
+
+.tier-icon.bronze {
+    background: linear-gradient(135deg, #cd7f32, #b8860b);
+}
+
+.tier-icon.silver {
+    background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+}
+
+.tier-icon.gold {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+}
+
 /* Branches Section */
 .branches-section {
     padding: 4rem 0;
@@ -2358,6 +3069,270 @@ body {
 .feature-item p {
     color: #6c757d;
     line-height: 1.6;
+}
+
+/* Notifications Dropdown */
+.notifications-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 400px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.notifications-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.notifications-header h4 {
+    color: #2c3e50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mark-all-read {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.mark-all-read:hover {
+    background: #f8f9fa;
+}
+
+.notifications-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f8f9fa;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background: #f8f9fa;
+}
+
+.notification-item.unread {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+    border-left: 4px solid #f39c12;
+}
+
+.notification-item.unread::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #e74c3c;
+    border-radius: 50%;
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.notification-icon.order {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.notification-icon.discount {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.notification-icon.wishlist {
+    background: linear-gradient(135deg, #e91e63, #ad1457);
+}
+
+.notification-icon.review {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.notification-icon.announcement {
+    background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content h5 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.notification-content p {
+    margin: 0 0 0.5rem 0;
+    color: #6c757d;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.notification-time {
+    font-size: 0.75rem;
+    color: #95a5a6;
+}
+
+.notification-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.notification-actions button {
+    padding: 0.3rem 0.8rem;
+    border: none;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.track-btn, .shop-now-btn, .buy-now-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.review-btn, .learn-more-btn {
+    background: #f39c12;
+    color: white;
+}
+
+.notification-actions button:hover {
+    transform: scale(1.05);
+}
+
+.notifications-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.view-all-notifications {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-all-notifications:hover {
+    background: #34495e;
+}
+
+/* Notifications Modal */
+.notifications-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.notification-filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.notification-filters select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+
+.clear-notifications-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.notifications-modal-list {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.notifications-modal-list .notification-item {
+    margin-bottom: 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.load-more-notifications {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.load-more-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: #5a6268;
 }
 
 /* About Section */

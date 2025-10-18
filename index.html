@@ -15,14 +15,16 @@
             <div class="nav-brand">
                 <i class="fas fa-book"></i>
                 <span>BookHaven</span>
-                <div class="location-info">
+                <div class="location-info" onclick="refreshLocation()" title="Click to refresh your location">
                     <i class="fas fa-map-marker-alt"></i>
                     <span id="currentLocation">Colombo, Sri Lanka</span>
+                    <i class="fas fa-sync-alt location-refresh" id="locationRefreshIcon"></i>
                 </div>
             </div>
             <nav class="nav">
                 <a href="#home">Home</a>
                 <a href="#books">Books</a>
+                <a href="#deals" class="deals-link">🔥 Deals</a>
                 <a href="#branches">Branches</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
@@ -52,6 +54,10 @@
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </button>
+                <button class="notifications-btn" id="notificationsBtn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount">3</span>
+                </button>
                 <div class="user-menu">
                     <button class="auth-btn" id="userMenuBtn">
                         <i class="fas fa-user"></i>
@@ -60,6 +66,7 @@
                     <div class="user-dropdown" id="userDropdown">
                         <a href="#" onclick="openProfile()"><i class="fas fa-user-edit"></i> Profile</a>
                         <a href="#" onclick="openOrderHistory()"><i class="fas fa-history"></i> Order History</a>
+                        <a href="#" onclick="openNotifications()"><i class="fas fa-bell"></i> Notifications</a>
                         <a href="#" onclick="openSettings()"><i class="fas fa-cog"></i> Settings</a>
                         <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
@@ -73,10 +80,278 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Welcome to BookHaven</h1>
-                <p>Discover your next favorite book from our curated collection</p>
-                <button class="cta-btn" onclick="document.getElementById('books').scrollIntoView()">
-                    Shop Now
-                </button>
+                <p>🧠 Transform Your Mind • 💰 Master Your Money • 🚀 Achieve Your Goals</p>
+                <p>Discover life-changing psychology and finance books from bestselling authors</p>
+                <div class="hero-buttons">
+                    <button class="cta-btn primary" onclick="document.querySelector('.featured-psychology-section').scrollIntoView()">
+                        <i class="fas fa-brain"></i> Psychology Books
+                    </button>
+                    <button class="cta-btn secondary" onclick="document.getElementById('books').scrollIntoView()">
+                        <i class="fas fa-book"></i> All Books
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Psychology & Finance Books Section -->
+    <section class="featured-psychology-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-brain"></i> 🧠 Psychology & Finance Bestsellers</h2>
+                <p>Transform your mindset and master your money with these life-changing books!</p>
+            </div>
+            
+            <div class="psychology-highlights">
+                <div class="highlight-card featured">
+                    <div class="highlight-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>"The Psychology of Money" by Morgan Housel</h3>
+                        <p>🏆 Wall Street Journal Bestseller</p>
+                        <p>Discover how your relationship with money shapes your financial life. Essential reading for anyone wanting to understand wealth and happiness.</p>
+                        <div class="highlight-price">
+                            <span class="price">₨1,299</span>
+                            <span class="original-price">₨1,599</span>
+                            <span class="discount">19% OFF</span>
+                        </div>
+                        <button class="highlight-btn" onclick="filterByCategory('non-fiction'); document.getElementById('books').scrollIntoView()">
+                            <i class="fas fa-shopping-cart"></i> Shop Psychology Books
+                        </button>
+                    </div>
+                    <div class="highlight-image">
+                        <img src="https://images.gr-assets.com/books/1581527774l/41881472.jpg" alt="Psychology of Money">
+                    </div>
+                </div>
+                
+                <div class="bestsellers-grid">
+                    <div class="bestseller-item">
+                        <img src="https://images.gr-assets.com/books/1535115320l/40121378.jpg" alt="Atomic Habits">
+                        <h4>Atomic Habits</h4>
+                        <p>James Clear</p>
+                        <div class="rating">★★★★★ 4.9</div>
+                        <div class="price">₨1,399</div>
+                    </div>
+                    <div class="bestseller-item">
+                        <img src="https://images.gr-assets.com/books/1388211242l/69571.jpg" alt="Rich Dad Poor Dad">
+                        <h4>Rich Dad Poor Dad</h4>
+                        <p>Robert Kiyosaki</p>
+                        <div class="rating">★★★★☆ 4.5</div>
+                        <div class="price">₨1,199</div>
+                    </div>
+                    <div class="bestseller-item">
+                        <img src="https://images.gr-assets.com/books/1421842784l/36072.jpg" alt="7 Habits">
+                        <h4>7 Habits of Highly Effective People</h4>
+                        <p>Stephen Covey</p>
+                        <div class="rating">★★★★★ 4.7</div>
+                        <div class="price">₨1,349</div>
+                    </div>
+                    <div class="bestseller-item">
+                        <img src="https://images.gr-assets.com/books/1463241782l/30186948.jpg" alt="Think and Grow Rich">
+                        <h4>Think and Grow Rich</h4>
+                        <p>Napoleon Hill</p>
+                        <div class="rating">★★★★☆ 4.6</div>
+                        <div class="price">₨999</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals & Discounts Section -->
+    <section class="deals-section" id="deals">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-fire"></i> Hot Deals & Discounts</h2>
+                <p>Limited time offers on your favorite books!</p>
+            </div>
+            
+            <!-- Discount Banner -->
+            <div class="discount-banner">
+                <div class="banner-content">
+                    <div class="discount-info">
+                        <span class="discount-badge">MEGA SALE</span>
+                        <h3>Up to 70% OFF on Selected Books!</h3>
+                        <p>🎉 Diwali Special Offer - Valid until October 31st</p>
+                        <div class="countdown-timer" id="countdownTimer">
+                            <div class="timer-unit">
+                                <span class="timer-number" id="days">13</span>
+                                <span class="timer-label">Days</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="hours">05</span>
+                                <span class="timer-label">Hours</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="minutes">42</span>
+                                <span class="timer-label">Minutes</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="seconds">18</span>
+                                <span class="timer-label">Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-image">
+                        <i class="fas fa-gift" style="font-size: 6rem; color: #e74c3c;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discount Categories -->
+            <div class="discount-categories">
+                <h3>Categories on Sale</h3>
+                <div class="categories-grid">
+                    <div class="category-deal">
+                        <div class="category-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h4>Sri Lankan Literature</h4>
+                        <div class="discount-percent">40% OFF</div>
+                        <p>Classic Sinhala novels and contemporary works</p>
+                        <button class="shop-category-btn" onclick="filterByCategory('sri-lankan')">Shop Now</button>
+                    </div>
+                    
+                    <div class="category-deal">
+                        <div class="category-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Psychology & Self-Help</h4>
+                        <div class="discount-percent">35% OFF</div>
+                        <p>Life-changing psychology and personal development books</p>
+                        <button class="shop-category-btn" onclick="filterByCategory('non-fiction')">Shop Now</button>
+                    </div>
+                    
+                    <div class="category-deal">
+                        <div class="category-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4>Science & Education</h4>
+                        <div class="discount-percent">30% OFF</div>
+                        <p>Fascinating science books and educational content</p>
+                        <button class="shop-category-btn" onclick="filterByCategory('science')">Shop Now</button>
+                    </div>
+                    
+                    <div class="category-deal">
+                        <div class="category-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Romance</h4>
+                        <div class="discount-percent">25% OFF</div>
+                        <p>Love stories from around the world</p>
+                        <button class="shop-category-btn" onclick="filterByCategory('romance')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Offers -->
+            <div class="special-offers">
+                <h3>Special Discount Codes</h3>
+                <div class="offers-grid">
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Student Discount</h4>
+                        </div>
+                        <div class="offer-code">STUDENT20</div>
+                        <p>20% off for students with valid ID</p>
+                        <button class="copy-code-btn" onclick="copyCode('STUDENT20')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <i class="fas fa-users"></i>
+                            <h4>Bulk Purchase</h4>
+                        </div>
+                        <div class="offer-code">BULK15</div>
+                        <p>15% off when you buy 5+ books</p>
+                        <button class="copy-code-btn" onclick="copyCode('BULK15')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <i class="fas fa-user-plus"></i>
+                            <h4>New Customer</h4>
+                        </div>
+                        <div class="offer-code">WELCOME10</div>
+                        <p>10% off on your first purchase</p>
+                        <button class="copy-code-btn" onclick="copyCode('WELCOME10')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                    </div>
+                    
+                    <div class="offer-card featured-offer">
+                        <div class="offer-header">
+                            <i class="fas fa-star"></i>
+                            <h4>Festival Special</h4>
+                        </div>
+                        <div class="offer-code">DIWALI30</div>
+                        <p>30% off - Diwali celebration offer</p>
+                        <button class="copy-code-btn" onclick="copyCode('DIWALI30')">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loyalty Program -->
+            <div class="loyalty-program">
+                <div class="loyalty-content">
+                    <div class="loyalty-info">
+                        <h3><i class="fas fa-crown"></i> BookHaven Rewards Program</h3>
+                        <p>Earn points with every purchase and unlock exclusive benefits!</p>
+                        <div class="loyalty-benefits">
+                            <div class="benefit">
+                                <i class="fas fa-coins"></i>
+                                <span>1 point = ₨1 earned</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-gift"></i>
+                                <span>Birthday month 2x points</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-shipping-fast"></i>
+                                <span>Free shipping for members</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-eye"></i>
+                                <span>Early access to sales</span>
+                            </div>
+                        </div>
+                        <button class="join-rewards-btn">Join Rewards Program</button>
+                    </div>
+                    <div class="loyalty-tiers">
+                        <div class="tier">
+                            <div class="tier-icon bronze">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4>Bronze</h4>
+                            <p>₨0 - ₨5,000</p>
+                            <span>5% cashback</span>
+                        </div>
+                        <div class="tier">
+                            <div class="tier-icon silver">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4>Silver</h4>
+                            <p>₨5,001 - ₨15,000</p>
+                            <span>10% cashback</span>
+                        </div>
+                        <div class="tier active">
+                            <div class="tier-icon gold">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h4>Gold</h4>
+                            <p>₨15,001+</p>
+                            <span>15% cashback</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -113,13 +388,16 @@
                             <option value="fiction">Fiction</option>
                             <option value="non-fiction">Non-Fiction</option>
                             <option value="sri-lankan">Sri Lankan Literature</option>
-                            <option value="indian">Indian Literature</option>
+                            <option value="psychology">Psychology</option>
+                            <option value="science">Science</option>
+                            <option value="biography">Biography</option>
+                            <option value="economics">Economics</option>
+                            <option value="environmental">Environmental Science</option>
                             <option value="tamil">Tamil Books</option>
                             <option value="sinhala">Sinhala Books</option>
                             <option value="mystery">Mystery</option>
                             <option value="romance">Romance</option>
                             <option value="fantasy">Fantasy</option>
-                            <option value="biography">Biography</option>
                             <option value="history">Asian History</option>
                             <option value="spiritual">Spiritual & Philosophy</option>
                         </select>
@@ -169,10 +447,10 @@
                     </div>
                     
                     <div class="filter-group">
-                        <label>Price Range: $<span id="priceMin">0</span> - $<span id="priceMax">50</span></label>
+                        <label>Price Range: ₨<span id="priceMin">0</span> - ₨<span id="priceMax">3000</span></label>
                         <div class="price-range-container">
-                            <input type="range" id="priceRangeMin" min="0" max="50" value="0" class="price-slider">
-                            <input type="range" id="priceRangeMax" min="0" max="50" value="50" class="price-slider">
+                            <input type="range" id="priceRangeMin" min="0" max="3000" value="0" step="100" class="price-slider">
+                            <input type="range" id="priceRangeMax" min="0" max="3000" value="3000" step="100" class="price-slider">
                         </div>
                     </div>
                     
@@ -186,12 +464,12 @@
 
             <!-- Results Info -->
             <div class="results-info">
-                <span id="resultsCount">Showing 12 of 12 books</span>
+                <span id="resultsCount">Showing 15 of 15 books</span>
                 <div class="items-per-page">
                     <label>Show:</label>
                     <select id="itemsPerPage">
                         <option value="8">8 per page</option>
-                        <option value="12" selected>12 per page</option>
+                        <option value="15" selected>15 per page</option>
                         <option value="24">24 per page</option>
                         <option value="48">48 per page</option>
                     </select>
@@ -215,7 +493,7 @@
         <div class="container">
             <div class="section-header">
                 <h2><i class="fas fa-store"></i> Our Branches</h2>
-                <p>Visit our physical stores across Sri Lanka and India</p>
+                <p>Visit our physical stores across Sri Lanka</p>
             </div>
             
             <div class="branches-container">
@@ -284,70 +562,7 @@
                     </div>
                 </div>
                 
-                <div class="country-section">
-                    <h3><i class="fas fa-flag"></i> India Branches</h3>
-                    <div class="branches-grid">
-                        <div class="branch-card">
-                            <div class="branch-icon">
-                                <i class="fas fa-city"></i>
-                            </div>
-                            <h4>Chennai Branch</h4>
-                            <p><i class="fas fa-map-marker-alt"></i> 234 T. Nagar, Chennai, Tamil Nadu</p>
-                            <p><i class="fas fa-phone"></i> +91 44 2456 7890</p>
-                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 10AM-7PM</p>
-                            <div class="branch-features">
-                                <span class="feature">🈳 Tamil Literature</span>
-                                <span class="feature">🏢 Metro Access</span>
-                                <span class="feature">📱 Digital Corner</span>
-                            </div>
-                        </div>
-                        
-                        <div class="branch-card">
-                            <div class="branch-icon">
-                                <i class="fas fa-landmark"></i>
-                            </div>
-                            <h4>Mumbai Branch</h4>
-                            <p><i class="fas fa-map-marker-alt"></i> 456 Linking Road, Bandra West, Mumbai</p>
-                            <p><i class="fas fa-phone"></i> +91 22 6789 1234</p>
-                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 11AM-7PM</p>
-                            <div class="branch-features">
-                                <span class="feature">🎬 Bollywood Section</span>
-                                <span class="feature">🚇 Station Nearby</span>
-                                <span class="feature">☕ Book Café</span>
-                            </div>
-                        </div>
-                        
-                        <div class="branch-card">
-                            <div class="branch-icon">
-                                <i class="fas fa-mosque"></i>
-                            </div>
-                            <h4>Delhi Branch</h4>
-                            <p><i class="fas fa-map-marker-alt"></i> 789 Connaught Place, New Delhi</p>
-                            <p><i class="fas fa-phone"></i> +91 11 9876 5432</p>
-                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 11AM-7PM</p>
-                            <div class="branch-features">
-                                <span class="feature">🏛️ Heritage Books</span>
-                                <span class="feature">🚇 Metro Connected</span>
-                                <span class="feature">📚 Government Section</span>
-                            </div>
-                        </div>
-                        
-                        <div class="branch-card">
-                            <div class="branch-icon">
-                                <i class="fas fa-temple-hindu"></i>
-                            </div>
-                            <h4>Bangalore Branch</h4>
-                            <p><i class="fas fa-map-marker-alt"></i> 321 Brigade Road, Bangalore, Karnataka</p>
-                            <p><i class="fas fa-phone"></i> +91 80 1234 5678</p>
-                            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-9PM, Sun: 11AM-7PM</p>
-                            <div class="branch-features">
-                                <span class="feature">💻 Tech Books</span>
-                                <span class="feature">🌳 Garden City</span>
-                                <span class="feature">🎓 IT Section</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             
             <div class="branch-features-section">
@@ -474,7 +689,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <h3>Contact Numbers</h3>
-                        <p>🇱🇰 Sri Lanka: +94 11 234-BOOK<br>🇮🇳 India: +91 44 567-BOOK<br>📞 WhatsApp: +94 77 123 4567<br>⏰ Mon-Sat: 9AM-8PM IST</p>
+                        <p>🇱🇰 Sri Lanka: +94 11 234-BOOK<br>📞 WhatsApp: +94 77 123 4567<br>🏢 Customer Service: +94 11 789-HELP<br>⏰ Mon-Sat: 9AM-8PM (Sri Lanka Time)</p>
                     </div>
                     
                     <div class="contact-card">
@@ -490,7 +705,7 @@
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <h3>Delivery Areas</h3>
-                        <p>🇱🇰 All Sri Lankan Provinces<br>🇮🇳 Major Indian Cities<br>🚚 Same-day delivery in Colombo<br>📦 Island-wide: 1-3 business days</p>
+                        <p>🇱🇰 All Sri Lankan Provinces<br>� International shipping available<br>🚚 Same-day delivery in Colombo<br>📦 Island-wide: 1-3 business days</p>
                     </div>
                 </div>
                 
@@ -909,6 +1124,211 @@
                 <button class="save-settings-btn" onclick="saveSettings()">
                     <i class="fas fa-save"></i> Save Settings
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Dropdown -->
+    <div class="notifications-dropdown" id="notificationsDropdown">
+        <div class="notifications-header">
+            <h4><i class="fas fa-bell"></i> Notifications</h4>
+            <button class="mark-all-read" onclick="markAllRead()">Mark all as read</button>
+        </div>
+        <div class="notifications-list" id="notificationsList">
+            <div class="notification-item unread" data-id="1">
+                <div class="notification-icon order">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="notification-content">
+                    <h5>Order Shipped!</h5>
+                    <p>Your order #ORD-1001 has been shipped and is on its way.</p>
+                    <span class="notification-time">2 hours ago</span>
+                </div>
+                <div class="notification-actions">
+                    <button class="track-btn" onclick="trackOrder('ORD-1001')">Track</button>
+                </div>
+            </div>
+            
+            <div class="notification-item unread" data-id="2">
+                <div class="notification-icon discount">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="notification-content">
+                    <h5>Flash Sale Alert! 🔥</h5>
+                    <p>70% OFF on Tamil literature - Limited time offer ending soon!</p>
+                    <span class="notification-time">4 hours ago</span>
+                </div>
+                <div class="notification-actions">
+                    <button class="shop-now-btn" onclick="filterByCategory('tamil')">Shop Now</button>
+                </div>
+            </div>
+            
+            <div class="notification-item unread" data-id="3">
+                <div class="notification-icon wishlist">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="notification-content">
+                    <h5>Wishlist Item on Sale!</h5>
+                    <p>"Ponniyin Selvan" from your wishlist is now 40% off!</p>
+                    <span class="notification-time">6 hours ago</span>
+                </div>
+                <div class="notification-actions">
+                    <button class="buy-now-btn" onclick="addToCartFromWishlist(8)">Buy Now</button>
+                </div>
+            </div>
+            
+            <div class="notification-item" data-id="4">
+                <div class="notification-icon review">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="notification-content">
+                    <h5>Review Reminder</h5>
+                    <p>How did you like "Viragaya"? Leave a review and earn 50 reward points!</p>
+                    <span class="notification-time">1 day ago</span>
+                </div>
+                <div class="notification-actions">
+                    <button class="review-btn" onclick="openReviewModal(1)">Write Review</button>
+                </div>
+            </div>
+            
+            <div class="notification-item" data-id="5">
+                <div class="notification-icon announcement">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="notification-content">
+                    <h5>New Branch Opening!</h5>
+                    <p>BookHaven Negombo branch opens this weekend with grand opening discounts!</p>
+                    <span class="notification-time">2 days ago</span>
+                </div>
+                <div class="notification-actions">
+                    <button class="learn-more-btn" onclick="scrollToBranches()">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="notifications-footer">
+            <button class="view-all-notifications" onclick="openNotifications()">
+                View All Notifications
+            </button>
+        </div>
+    </div>
+
+    <!-- Notifications Modal -->
+    <div class="modal" id="notificationsModal">
+        <div class="modal-content large-modal">
+            <span class="close-modal" onclick="closeNotifications()">&times;</span>
+            <div class="notifications-container">
+                <div class="notifications-modal-header">
+                    <h3><i class="fas fa-bell"></i> All Notifications</h3>
+                    <div class="notification-filters">
+                        <select id="notificationFilter">
+                            <option value="all">All Notifications</option>
+                            <option value="unread">Unread Only</option>
+                            <option value="orders">Orders</option>
+                            <option value="discounts">Discounts & Offers</option>
+                            <option value="wishlist">Wishlist Updates</option>
+                            <option value="reviews">Reviews</option>
+                            <option value="announcements">Announcements</option>
+                        </select>
+                        <button class="clear-notifications-btn" onclick="clearAllNotifications()">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="notifications-modal-list" id="notificationsModalList">
+                    <!-- Extended notifications list will be populated by JavaScript -->
+                    <div class="notification-item unread">
+                        <div class="notification-icon order">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h5>Order Delivered Successfully! 📦</h5>
+                            <p>Your order #ORD-1003 containing "Midnight's Children" has been delivered to your address.</p>
+                            <span class="notification-time">Just now</span>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="rate-delivery-btn">Rate Delivery</button>
+                            <button class="reorder-btn" onclick="reorder('ORD-1003')">Reorder</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="notification-icon discount">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h5>Exclusive Member Discount! 🎉</h5>
+                            <p>As a Gold member, you get an extra 5% off on your next purchase. Use code: GOLD5</p>
+                            <span class="notification-time">1 hour ago</span>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="copy-code-btn" onclick="copyCode('GOLD5')">Copy Code</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="notification-icon announcement">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h5>Author Meet & Greet Event! 👨‍💼</h5>
+                            <p>Meet renowned Sri Lankan author Dr. Rajiva Wijesinha at our Colombo branch this Saturday!</p>
+                            <span class="notification-time">3 hours ago</span>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="register-event-btn">Register for Event</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="notification-icon wishlist">
+                            <i class="fas fa-bookmark"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h5>New Arrival Alert! 📚</h5>
+                            <p>Based on your reading history, you might like "The Seven Moons of Maali Almeida" - now available!</p>
+                            <span class="notification-time">5 hours ago</span>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="add-to-wishlist-btn">Add to Wishlist</button>
+                            <button class="view-book-btn">View Book</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="notification-icon review">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h5>Review Milestone Achieved! 🏆</h5>
+                            <p>Congratulations! You've written 10 reviews and earned the "Book Critic" badge!</p>
+                            <span class="notification-time">1 day ago</span>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="view-badges-btn">View Badges</button>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="notification-icon order">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h5>Return Request Approved</h5>
+                            <p>Your return request for order #ORD-998 has been approved. Refund will be processed in 3-5 days.</p>
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="track-refund-btn">Track Refund</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="load-more-notifications">
+                    <button class="load-more-btn" onclick="loadMoreNotifications()">
+                        <i class="fas fa-chevron-down"></i> Load More Notifications
+                    </button>
+                </div>
             </div>
         </div>
     </div>
