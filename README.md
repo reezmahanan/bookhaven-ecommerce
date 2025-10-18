@@ -1,33 +1,122 @@
-# 📚 BookHaven - Complete E-Commerce Bookstore System
+# 📚 BookHaven - E-Commerce Bookstore# 📚 BookHaven - E-Commerce Bookstore
 
-<div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-blue?style=for-the-badge)](https://bookhaven-ecommerce.vercel.app)
-[![GitHub](https://img.shields.io/badge/📂_GitHub-Source_Code-black?style=for-the-badge&logo=github)](https://github.com/reezmahanan/bookhaven-ecommerce)
-[![Author](https://img.shields.io/badge/👨‍💻_Author-reezmahanan-green?style=for-the-badge)](https://github.com/reezmahanan)
-[![License](https://img.shields.io/badge/📄_License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-![BookHaven Preview](https://via.placeholder.com/800x400/2c3e50/ffffff?text=BookHaven+E-Commerce+Preview)
+**Complete e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Specializes in **Psychology & Finance** books for the **Sri Lankan market**.**Complete e-commerce bookstore system** built with **HTML5, CSS3, and JavaScript**. Specializes in **Psychology & Finance** books for the **Sri Lankan market**.
 
-</div>
 
-**🏆 Premium E-Commerce Bookstore System** - A complete, feature-rich online bookstore built with modern web technologies. Specializes in **Psychology & Finance** books for the **Sri Lankan market** with full e-commerce functionality.
 
-**👨‍💻 Developer**: [reezmahanan](https://github.com/reezmahanan)  
-**🚀 Status**: Production Ready Frontend System  
-**🌍 Market Focus**: Sri Lanka (LKR Currency)  
-**📅 Last Updated**: October 18, 2025  
-**⭐ Rating**: 5-Star Quality System
+## 🚀 Live Demo## 🚀 Live Demo
 
-## 🚀 Quick Start & Demo
 
-<div align="center">
 
-### [🌐 **LIVE DEMO**](https://bookhaven-ecommerce.vercel.app) | [📂 **GITHUB REPO**](https://github.com/reezmahanan/bookhaven-ecommerce) | [📋 **DOCUMENTATION**](#-documentation)
+**🌐 [Live Website](https://reezmahanan.github.io/bookhaven-ecommerce)****🌐 [Live Website](https://reezmahanan.github.io/bookhaven-ecommerce)**
 
-**Try the demo**: Browse 30+ books, add to cart, test filters, experience mobile responsiveness!
 
-</div>
+
+## ✨ Features## ✨ Features
+
+
+
+- 📖 **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature- � **30+ Curated Books** - Psychology, Finance, Science, Sri Lankan Literature
+
+- 🛒 **Shopping Cart** - Add/remove items, quantity management, persistent storage- 🛒 **Shopping Cart** - Add/remove items, quantity management, persistent storage
+
+- 🔍 **Advanced Search & Filters** - Category, author, price, rating filters- 🔍 **Advanced Search & Filters** - Category, author, price, rating filters
+
+- 🗺️ **Smart Location Tracking** - Click location to refresh with geolocation- 🗺️ **Smart Location Tracking** - Click location to refresh with geolocation
+
+- 📧 **Contact System** - Professional form with validation- 📧 **Contact System** - Professional form with validation
+
+- 🇱🇰 **Sri Lankan Market Focus** - LKR pricing (₨999-₨2,500), local branches- 🇱🇰 **Sri Lankan Market Focus** - LKR pricing (₨999-₨2,500), local branches
+
+- 📱 **Mobile Responsive** - Perfect on all devices- 📱 **Mobile Responsive** - Perfect on all devices
+
+- 👤 **User Authentication** - Login/register system- 👤 **User Authentication** - Login/register system
+
+- 💝 **Wishlist & Compare** - Save favorites and compare books- 💝 **Wishlist & Compare** - Save favorites and compare books
+
+
+
+## 🛠️ Tech Stack## �️ Tech Stack
+
+
+
+- **Frontend**: HTML5, CSS3, JavaScript ES6+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+
+- **Styling**: Flexbox, Grid, Responsive Design- **Styling**: Flexbox, Grid, Responsive Design
+
+- **Icons**: Font Awesome- **Icons**: Font Awesome
+
+- **Images**: Open Library Covers API- **Images**: Open Library Covers API
+
+- **Storage**: localStorage- **Storage**: localStorage
+
+
+
+## 🚀 Quick Start## 🚀 Quick Start
+
+
+
+1. Clone the repository1. Clone the repository
+
+2. Open `index.html` in your browser2. Open `index.html` in your browser
+
+3. Start exploring books!3. Start exploring books!
+
+
+
+```bash```bash
+
+git clone https://github.com/reezmahanan/bookhaven-ecommerce.gitgit clone https://github.com/reezmahanan/bookhaven-ecommerce.git
+
+cd bookhaven-ecommercecd bookhaven-ecommerce
+
+# Open index.html in browser# Open index.html in browser
+
+``````
+
+
+
+## 📱 Key Highlights## � Key Highlights
+
+
+
+- ✅ **Click location** in header to refresh your current location- ✅ **Click location** in header to refresh your current location
+
+- ✅ **Browse 30+ books** with real covers and Sri Lankan pricing- ✅ **Browse 30+ books** with real covers and Sri Lankan pricing
+
+- ✅ **Test shopping cart** - add books, manage quantities- ✅ **Test shopping cart** - add books, manage quantities
+
+- ✅ **Try filters** - search by category, author, price range- ✅ **Try filters** - search by category, author, price range
+
+- ✅ **Contact form** - test the enhanced validation system- ✅ **Contact form** - test the enhanced validation system
+
+- ✅ **Mobile responsive** - works perfectly on phones and tablets- ✅ **Mobile responsive** - works perfectly on phones and tablets
+
+
+
+## 🎯 Perfect For## 🎯 Perfect For
+
+
+
+- Learning e-commerce development- Learning e-commerce development
+
+- Portfolio showcase projects- Portfolio showcase projects
+
+- Starting an online bookstore business- Starting an online bookstore business
+
+- Exploring psychology and finance books- Exploring psychology and finance books
+
+
+
+------
+
+
+
+**Developer**: [reezmahanan](https://github.com/reezmahanan)  **Developer**: [reezmahanan](https://github.com/reezmahanan)  
+
+**License**: MIT**License**: MIT
 
 ## 🆕 Latest Updates (October 18, 2025)
 
